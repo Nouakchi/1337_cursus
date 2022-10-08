@@ -43,7 +43,7 @@ char    **ft_split(char const *s, char c)
     {
         len = 0;
         while (*s && *s == c)
-			s++;
+            s++;
 		while (*s++ && !(*s == c))
             len++;
         res[i] = stralloc(s - len - 1,len + 1);

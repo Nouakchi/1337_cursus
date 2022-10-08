@@ -21,7 +21,15 @@ void *ft_memmove(void *dst, const void *src, size_t len)
         while (++i < len)
             ((char *)dst)[i] = ((char *)src)[i];
     else
-        while (--len >= 0)
+        while (len-- > 0)
             ((char *)dst)[len] = ((char *)src)[len];
     return (dst);
+}
+
+int main()
+{
+    char x[] = "hello";
+    char y[] = "hello";
+
+    printf("%s", ft_memmove(x + 2, x, 3));
 }
