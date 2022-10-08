@@ -19,9 +19,3 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
     ft_strlcpy(res, &s[start - 1], (lres < len) ? lres + 1 : len + 1);
     return (res);
 }
-
-int main()
-{
-    printf("%s", ft_substr(NULL, 4, 6));
-    return 0;
-}
