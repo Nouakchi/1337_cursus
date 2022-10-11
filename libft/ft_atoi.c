@@ -4,8 +4,8 @@
 
 int ft_atoi(const char *str)
 {
-    int res;
-    int sign;
+    unsigned int res;
+    unsigned int sign;
 
     res = 0;
     sign = 1;
@@ -22,11 +22,6 @@ int ft_atoi(const char *str)
         res = res * 10 + *str - 48;
         str++;
     }
-    return (res * sign);
-}
-
-int main()
-{
-    char buffer[] = "   -2147483648";
-    printf("%d", ft_atoi(buffer));
+    res *= sign;
+    return (res);
 }

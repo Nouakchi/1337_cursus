@@ -35,7 +35,7 @@ char    **ft_split(char const *s, char c)
     if (!s)
         return (0);
     words = count_words(s, c);
-    res = (char **)malloc((words + 1) * sizeof(char));
+    res = (char **)malloc((words + 1) * sizeof(char*));
     if (!res)
         return (0);
     i = -1;
@@ -50,17 +50,4 @@ char    **ft_split(char const *s, char c)
     }
     res[i] = NULL;
     return (res);
-}
-
-int main()
-{
-    char **res = ft_split(NULL, '|');
-    int i = 0;
-    while (res)
-    {
-        printf("%s\n", res[i]);
-        res++;
-    }
-    
-    return (0);
 }

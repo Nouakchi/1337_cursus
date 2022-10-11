@@ -3,5 +3,6 @@
 
 void ft_putchar_fd(char c, int fd)
 {
-    write(fd, &c, sizeof(char));
+    if (fd >= 0 && (c >= 0 && c <= 127))
+        write(fd, &c, 1);
 }
