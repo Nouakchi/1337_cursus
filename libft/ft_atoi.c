@@ -4,8 +4,8 @@
 
 int ft_atoi(const char *str)
 {
-    unsigned int res;
-    unsigned int sign;
+    size_t res;
+    int sign;
 
     res = 0;
     sign = 1;
@@ -22,6 +22,10 @@ int ft_atoi(const char *str)
         res = res * 10 + *str - 48;
         str++;
     }
+    if (res >= 9223372036854775807 && sign > 0)
+        return (-1);
+    if (res > 9223372036854775807 && sign < 0)
+        return (0);
     res *= sign;
-    return (res);
+    return ((int)res);
 }

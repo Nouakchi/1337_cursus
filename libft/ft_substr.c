@@ -5,16 +5,23 @@
 char *ft_substr(char const *s, unsigned int start, size_t len)
 {
     char *res;
-    size_t lres;
+    size_t ls;
     size_t size;
+    size_t i;
 
     if (!s)
         return (NULL);
-    lres = ft_strlen(&s[start - 1]);
-    size = (lres < len) ? lres : len;
+    if (start >= ft_strlen(s))
+        ls = 0;
+    else
+        ls = (start == 0) ? ft_strlen(s) : ft_strlen(s + start - 1);
+    size = (ls >= len) ? len : ls; 
     res = (char *)malloc((size + 1) * sizeof(char));
     if (!res)
         return (NULL);
-    ft_strlcpy(res, &s[start - 1], (lres < len) ? lres + 1 : len + 1);
+    i = 0;
+    while(s[start] && i < size)
+        res[i++] = s[start++];
+    res[i] = '\0';
     return (res);
 }

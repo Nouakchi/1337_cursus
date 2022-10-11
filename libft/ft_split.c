@@ -20,8 +20,13 @@ int	count_words(const char *str, char sprt)
 char    *stralloc(const char *s, int len)
 {
     char *res;
+    int i;
 
-    res = ft_strdup(ft_substr(s, 1, len));
+    i = -1;
+    res = (char *)malloc(len * sizeof(char));
+    while (s[++i] && i < len)
+        res[i] = s[i];
+    res[i] = '\0';
     return (res);
 }
 
