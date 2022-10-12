@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 20:30:08 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/12 19:09:12 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/12 20:59:34 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void ft_lstadd_front(t_list **lst, t_list *_new)
 {
-  _new->linker = *lst;
+  _new->next = *lst;
   *lst = _new;
 }

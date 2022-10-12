@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 20:54:28 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/12 19:10:05 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/12 21:15:09 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ t_list *ft_lstlast(t_list *lst)
 {
   t_list *ptr;
   
+  if (lst == ((void *)0))
+    return ((void *)0);
   ptr = lst;
-  while (ptr->linker)
-    ptr = ptr->linker;
+  while (ptr->next)
+    ptr = ptr->next;
   return (ptr);
 }

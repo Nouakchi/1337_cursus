@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 20:50:42 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/12 19:09:05 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/12 20:57:47 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int ft_lstsize(t_list *lst)
   while(ptr)
     {
       count++;
-      ptr = ptr->linker;
+      ptr = ptr->next;
     }
   return (count);
 }

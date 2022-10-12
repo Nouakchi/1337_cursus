@@ -6,18 +6,20 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 20:21:31 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/12 19:08:04 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/12 21:09:38 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstnew(int content)
+t_list *ft_lstnew(void *content)
 {
   t_list *node;
   
   node = malloc(sizeof(t_list));
-  node->content= content;
-  node->linker = NULL;
+  if (!node)
+    return (NULL);
+  node->content= (char *)content;
+  node->next = NULL;
   return (node);
 }

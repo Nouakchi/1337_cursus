@@ -43,26 +43,27 @@ BSRCS:= ft_lstnew.c \
 	ft_lstlast.c \
 	ft_lstadd_back.c \
 	ft_lstdelone.c \
-	ft_lstclear \
 	ft_lstiter.c \
-	ft_lstmap.c
+	ft_lstmap.c \
+	ft_lstclear.c
 
 OBJS:= ${SRCS:.c=.o}
+BOBJS:= ${BSRCS:.c=.o}
 CFLAGS:= -Wall -Wextra -Werror
 RM:= rm -f
 
 all: ${NAME} libft.H
 
-${NAME}: ${OBJS}
-	ar -rc ${NAME} ${OBJS}
+${NAME}: ${OBJS} ${BOBJS}
+	ar -rc ${NAME} $?
 
 %.o: %.c
 	${CC} ${CFLAGS} -c $<
 
-bonus:
+bonus: ${NAME}
 
 clean: 
-	${RM} $(OBJS)
+	${RM} $(OBJS) $(BOBJS)
 
 fclean: clean
 	${RM} ${NAME}
