@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 20:55:23 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/11 21:47:22 by onouakch         ###   ########.fr       */
+/*   Created: 2022/10/11 20:30:08 by onouakch          #+#    #+#             */
+/*   Updated: 2022/10/12 19:09:12 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void ft_lstadd_front(t_list **lst, t_list *_new)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
+  _new->linker = *lst;
+  *lst = _new;
 }

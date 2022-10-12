@@ -24,7 +24,7 @@ int ft_atoi(const char *str)
     }
     if (res >= 9223372036854775807 && sign > 0)
         return (-1);
-    if (res > 9223372036854775807 && sign < 0)
+    if (res > 9223372036854775807 && sign < 0)  
         return (0);
     res *= sign;
     return ((int)res);

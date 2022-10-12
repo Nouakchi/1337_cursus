@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:35:30 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/11 17:44:52 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:46:06 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void *ft_memset(void *b, int c, size_t len)
 
     i = 0;
     while(i < len)
-        ((char *)b)[i++] = c;
+        ((unsigned char *)b)[i++] = c;
     return b;
 }

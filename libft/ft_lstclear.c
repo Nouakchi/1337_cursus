@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 20:55:23 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/11 21:47:22 by onouakch         ###   ########.fr       */
+/*   Created: 2022/10/11 21:58:23 by onouakch          #+#    #+#             */
+/*   Updated: 2022/10/12 20:47:37 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void ft_lstclear(t_lst **lst, void (*del)(void*))
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
+  t_lst tmp;
+  
+  while (*lst)
+  {
+    tmp = *lst->linker;
+    ft_lstdelone(lst, del);
+    *lst = *lst-> linker;
+  }
+  free(tmp);
 }

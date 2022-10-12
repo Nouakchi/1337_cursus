@@ -37,17 +37,29 @@ SRCS:= ft_isalpha.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
+BSRCS:= ft_lstnew.c \
+	ft_lstadd_front.c \
+	ft_lstsize.c \
+	ft_lstlast.c \
+	ft_lstadd_back.c \
+	ft_lstdelone.c \
+	ft_lstclear \
+	ft_lstiter.c \
+	ft_lstmap.c
+
 OBJS:= ${SRCS:.c=.o}
 CFLAGS:= -Wall -Wextra -Werror
 RM:= rm -f
 
-all: ${NAME}
+all: ${NAME} libft.H
 
 ${NAME}: ${OBJS}
 	ar -rc ${NAME} ${OBJS}
 
 %.o: %.c
 	${CC} ${CFLAGS} -c $<
+
+bonus:
 
 clean: 
 	${RM} $(OBJS)
