@@ -45,7 +45,7 @@ BSRCS:= ft_lstnew.c \
 	ft_lstdelone.c \
 	ft_lstiter.c \
 	ft_lstmap.c \
-	ft_lstclear.c
+	ft_lstclear.c \
 
 OBJS:= ${SRCS:.c=.o}
 BOBJS:= ${BSRCS:.c=.o}
