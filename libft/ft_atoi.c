@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:51:28 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/13 13:14:11 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/14 10:44:14 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	ft_atoi(const char *str)
 		res = res * 10 + *str - 48;
 		str++;
 	}
-	if (res >= 9223372036854775807 && sign > 0)
+	if (res >= (unsigned long long) -1 / 2 && sign > 0)
 		return (-1);
-	if (res > 9223372036854775807 && sign < 0)
+	if (res > (unsigned long long) -1 / 2 && sign < 0)
 		return (0);
 	res *= sign;
 	return ((int)res);

@@ -52,15 +52,16 @@ BOBJS:= ${BSRCS:.c=.o}
 CFLAGS:= -Wall -Wextra -Werror
 RM:= rm -f
 
-all: ${NAME} libft.H
+all: ${NAME} 
 
-${NAME}: ${OBJS} ${BOBJS}
-	ar -rc ${NAME} $?
+${NAME}: ${OBJS} 
+	ar -rcs ${NAME} ${OBJS}
 
-%.o: %.c
+%.o: %.c libft.h
 	${CC} ${CFLAGS} -c $<
 
-bonus: ${NAME}
+bonus: $(BOBJS) libft.h
+	ar -rcs ${NAME} $(BOBJS)
 
 clean: 
 	${RM} $(OBJS) $(BOBJS)
@@ -68,6 +69,6 @@ clean:
 fclean: clean
 	${RM} ${NAME}
 
-re: fclean all
+re: fclean all bonus
 
 .PHONY: all clean fclean re
