@@ -6,15 +6,13 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 20:55:38 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/13 17:13:38 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/17 10:51:10 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 

@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:22:28 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/13 17:07:47 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/17 10:37:11 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,26 @@ char	*stralloc(const char *s, int len)
 
 	i = -1;
 	res = (char *)malloc(len * sizeof(char));
+	if (!res)
+		return (NULL);
 	while (s[++i] && i < len)
 		res[i] = s[i];
 	res[i] = '\0';
 	return (res);
+}
+
+void	*fr_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -64,6 +80,8 @@ char	**ft_split(char const *s, char c)
 		while (*s++ && !(*s == c))
 			len++;
 		res[i] = stralloc(s - len - 1, len + 1);
+		if (!res[i])
+			return (fr_tab(res));
 	}
 	res[i] = NULL;
 	return (res);

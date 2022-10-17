@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:20:32 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/13 16:20:43 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/17 10:43:47 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	if (fd >= 0 && (c >= 0 && c <= 127))
-		write(fd, &c, 1);
+	write(fd, &c, 1);
 }

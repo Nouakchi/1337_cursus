@@ -6,14 +6,14 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 20:30:08 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/13 16:12:36 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/16 18:48:03 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *_new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	_new->next = *lst;
-	*lst = _new;
+	new->next = *lst;
+	*lst = new;
 }
