@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:51:28 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/16 18:44:57 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/20 21:51:17 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
 		str++;
-	while (*str == '-' || *str == '+')
+	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
 			sign *= -1;

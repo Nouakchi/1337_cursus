@@ -6,13 +6,13 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:22:28 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/17 13:53:10 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/21 01:03:20 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(const char *str, char sprt)
+static int	count_words(const char *str, char sprt)
 {
 	int	counter;
 
@@ -29,22 +29,25 @@ int	count_words(const char *str, char sprt)
 	return (counter);
 }
 
-char	*stralloc(const char *s, int len)
+static char	*stralloc(const char *s, int len)
 {
 	char	*res;
 	int		i;
 
-	i = -1;
+	i = 0;
 	res = (char *)malloc(len * sizeof(char));
 	if (!res)
 		return (NULL);
-	while (s[++i] && i < len)
+	while (s[i] && i < len - 1)
+	{
 		res[i] = s[i];
+		i++;
+	}
 	res[i] = '\0';
 	return (res);
 }
 
-void	*fr_tab(char **tab)
+static void	*fr_tab(char **tab)
 {
 	int	i;
 
@@ -74,12 +77,12 @@ char	**ft_split(char const *s, char c)
 	i = -1;
 	while (++i < words)
 	{
-		len = 0;
+		len = 1;
 		while (*s && *s == c)
 			s++;
-		while (*s++ && !(*s == c))
+		while (*s++ && *s != c)
 			len++;
-		res[i] = stralloc(s - len - 1, len + 1);
+		res[i] = stralloc(s - len, len + 1);
 		if (!res[i])
 			return (fr_tab(res));
 	}
