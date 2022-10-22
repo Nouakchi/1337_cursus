@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 00:59:10 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/22 08:52:58 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/22 21:28:15 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include	<fcntl.h> 
 #include	<stdlib.h> 
 
-char *ft_truncate(char **str)
+char *ft_truncate(char *str)
 {
 	size_t len;
-	char*res;
+	char	*res;
 
 	len = 0;
 	while (str[len] && str[len] != '\n')
@@ -27,14 +27,13 @@ char *ft_truncate(char **str)
 	if (!res)
 		return (NULL);
 	len = 0;
-	while (str[len] && str[len] != '\n')
+	while (str[len] != '\n')
 	{
 		res[len] = str[len];
 		len++;
 	}
 	res[len] = '\n';
 	res[len + 1] = '\0';
-	(*str) += len;
 	return (res);
 }
 
