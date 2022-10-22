@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 00:59:10 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/22 21:28:15 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/22 23:15:51 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include	<fcntl.h> 
 #include	<stdlib.h> 
 
-char *ft_truncate(char *str)
+char	*ft_truncate(char *str)
 {
-	size_t len;
+	size_t	len;
 	char	*res;
 
 	len = 0;
@@ -50,8 +50,8 @@ size_t	ft_strlen(const char *str)
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*res;
-	size_t		i;
-	size_t		j;
+	size_t	i;
+	size_t	j;
 	size_t	rsize;
 
 	if (!s1 || !s2)
@@ -83,4 +83,21 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	else
 		return (NULL);
+}
+
+char	*ft_check(char **reserve, char **res)
+{
+	if (ft_strchr(*reserve, '\n') != NULL)
+	{
+		*res = ft_truncate(*reserve);
+		while (**reserve && **reserve != '\n')
+			(*reserve)++;
+		(*reserve)++;
+	}
+	else
+	{
+		*res = *reserve;
+		*reserve = NULL;
+	}
+	return (*res);
 }
