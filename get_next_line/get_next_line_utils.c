@@ -3,39 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 00:59:10 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/24 00:20:41 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:46:13 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<stdio.h> 
 #include	<unistd.h> 
 #include	<fcntl.h> 
-#include	<stdlib.h> 
-
-char	*ft_truncate_left(char *str)
-{
-	size_t	len;
-	char	*res;
-
-	len = 0;
-	while (str[len] && str[len] != '\n')
-		len++;
-	res = malloc((len + 2) * sizeof(char));
-	if (!res)
-		return (NULL);
-	len = 0;
-	while (str[len] != '\n')
-	{
-		res[len] = str[len];
-		len++;
-	}
-	res[len] = '\n';
-	res[len + 1] = '\0';
-	return (res);
-}
+#include	<stdlib.h>
+#include	<string.h>
 
 size_t	ft_strlen(const char *str)
 {
@@ -45,6 +24,22 @@ size_t	ft_strlen(const char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+char    *ft_strdup(const char *s1)
+{
+	size_t		len;
+	char	*res;
+	int		i;	
+	len = ft_strlen(s1) + 1;
+	res = (char *)malloc(len * sizeof(char));
+	if (!res)
+	        return (NULL);
+	i = -1;
+	while (s1[++i])
+		res[i] = s1[i];
+	res[i] = '\0';
+	return (res);
 }
 
 char	*ft_strjoin(char **s1, char **s2)
@@ -57,7 +52,7 @@ char	*ft_strjoin(char **s1, char **s2)
 	if (!*s1 && !*s2)
 		return (NULL);
 	if (!*s1)
-		return (*s2);
+		return (strdup(*s2));
 	if (!*s2)
 		return (*s1);
 	rsize = (ft_strlen(*s1) + ft_strlen(*s2) + 1);
@@ -71,7 +66,7 @@ char	*ft_strjoin(char **s1, char **s2)
 	while ((*s2)[++j])
 		res[i++] = (*s2)[j];
 	res[i] = '\0';
-	free(*s2);
+	free(*s1);
 	return (res);
 }
 
