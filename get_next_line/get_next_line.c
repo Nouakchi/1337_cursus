@@ -6,109 +6,62 @@
 /*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 00:57:05 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/24 20:34:47 by othman           ###   ########.fr       */
+/*   Updated: 2022/10/25 20:41:54 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_truncate_left(char *str)
+char *ft_read_line(int fd, char *reserve)
 {
-	size_t	len;
-	char	*res;
+	char			*buff;
+	int		check;
 
-	len = 0;
-	while (str[len] && str[len] != '\n')
-		len++;
-	res = malloc((len + 2) * sizeof(char));
-	if (!res)
+	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buff)
 		return (NULL);
-	len = 0;
-	while (str[len] != '\n')
+	check = 1;
+	while (check != 0 && ft_strchr(reserve, '\n') == NULL)
 	{
-		res[len] = str[len];
-		len++;
+		check = read(fd, buff, BUFFER_SIZE);
+		if (check == -1)
+		{
+			free(buff);
+			return (NULL);
+		}
+		buff[check] = '\0';
+		reserve = ft_strjoin(&reserve, &buff);
 	}
-	res[len] = '\n';
-	res[len + 1] = '\0';
-	return (res);
-}
-
-char	*ft_truncate_right(char **str)
-{
-	int		i;
-	int		len;
-	char	*res;
-
-	i = 0;
-	while ((*str)[i] != '\n')
-			i++;
-	len = i + 1;
-	while ((*str)[len])
-		len++;
-	res = malloc((len - i) * sizeof(char));
-	if (!res)
-		return (NULL);
-	len = i + 1;
-	i = 0;
-	while ((*str)[len])
-		res[i++] = (*str)[len++];
-	res[i] = '\0';
-	free(*str);
-	return (res);
-}
-
-char	*ft_check(char **reserve)
-{
-	char	*res;
-
-	if (ft_strchr(*reserve, '\n') != NULL)
-	{
-		res = ft_truncate_left(*reserve);
-		*reserve = ft_truncate_right(&(*reserve));
-	}
-	else
-	{
-		res = *reserve;
-		*reserve = NULL;
-	}
-	return (res);
+	free(buff);
+	return (reserve);
 }
 
 char	*get_next_line(int fd)
 {
-	char			*buff;
-	static int		check = -2;
 	static char		*reserve = NULL;
+	char *result;
 
-	if (check == -1 || BUFFER_SIZE <= 0)
-		return (NULL);
-	if (ft_strchr(reserve, '\n') != NULL)
-		return (ft_check(&reserve));
-	while (check != 0 && ft_strchr(reserve, '\n') == NULL)
-	{
-		buff = malloc(BUFFER_SIZE + 1);
-		if (!buff)
-			return (NULL);
-		check = read(fd, buff, BUFFER_SIZE);
-		if (check == -1)
-			return (NULL);
-		buff[check] = '\0';
-		reserve = ft_strjoin(&reserve, &buff);
-		free(buff);
-	}
-	return (ft_check(&reserve));
+	if (BUFFER_SIZE <= 0 || fd < 0)
+		return (0);
+	reserve = ft_read_line(fd, reserve);
+	if (!reserve)
+		return(NULL);
+	result = ft_truncate_left(reserve);
+	reserve = ft_truncate_right(&reserve);
+	return (result);
 }
 
-int main()
-{
-	int fd = open("test.txt", O_RDWR);
-	char *line;
-	while (1)
-	{
-		line = get_next_line(fd);
-		printf("%s", line);
-		if (line == NULL)
-			break;
-	}
-}
+// int main()
+// {
+// 	int fd = open("./gnlTester/files/nl", O_RDWR);
+// 	char *line;
+// 	while (1)
+// 	{
+// 		line = get_next_line(fd);
+// 		printf("%s", line);
+// 		if (line == NULL)
+// 			break;
+// 		free(line);
+// 	}
+//  	close(fd);
+// }
