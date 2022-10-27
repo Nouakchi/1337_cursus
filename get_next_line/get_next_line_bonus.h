@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 20:05:45 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/27 20:05:47 by onouakch         ###   ########.fr       */
+/*   Created: 2022/10/27 20:03:53 by onouakch          #+#    #+#             */
+/*   Updated: 2022/10/27 20:07:07 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-# include<stdlib.h> 
+# include <stdlib.h> 
 # include <unistd.h>
 
 size_t	ft_strlen(const char *str);

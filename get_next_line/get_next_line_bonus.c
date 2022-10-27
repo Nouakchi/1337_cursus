@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 20:05:17 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/27 20:05:41 by onouakch         ###   ########.fr       */
+/*   Created: 2022/10/27 20:03:09 by onouakch          #+#    #+#             */
+/*   Updated: 2022/10/27 20:03:44 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_read_line(int fd, char *reserve)
 {
@@ -38,15 +38,15 @@ char	*ft_read_line(int fd, char *reserve)
 
 char	*get_next_line(int fd)
 {
-	static char	*reserve = NULL;
+	static char	*reserve[4096];
 	char		*result;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (0);
-	reserve = ft_read_line(fd, reserve);
-	if (!reserve)
+	reserve[fd] = ft_read_line(fd, reserve[fd]);
+	if (!reserve[fd])
 		return (NULL);
-	result = ft_truncate_left(reserve);
-	reserve = ft_truncate_right(&reserve);
+	result = ft_truncate_left(reserve[fd]);
+	reserve[fd] = ft_truncate_right(&reserve[fd]);
 	return (result);
 }
