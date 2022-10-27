@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:22:28 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/21 01:03:20 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/22 22:51:45 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,3 +89,4 @@ char	**ft_split(char const *s, char c)
 	res[i] = NULL;
 	return (res);
 }
+
