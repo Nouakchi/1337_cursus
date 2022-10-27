@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -12,6 +13,11 @@
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
+=======
+
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+>>>>>>> 93c1de0b0e43cecccdc7fbee6eeed215ca0561b3
 
 # include <stdlib.h> 
 # include <unistd.h>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -9,6 +10,8 @@
 /*   Updated: 2022/10/27 20:05:11 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+=======
+>>>>>>> 93c1de0b0e43cecccdc7fbee6eeed215ca0561b3
 
 #include "get_next_line.h"
 
@@ -70,7 +73,11 @@ char	*ft_strchr(const char *s, int c)
 
 char	*ft_truncate_left(char *str)
 {
+<<<<<<< HEAD
 	int		len;
+=======
+	int	len;
+>>>>>>> 93c1de0b0e43cecccdc7fbee6eeed215ca0561b3
 	char	*res;
 
 	len = 0;

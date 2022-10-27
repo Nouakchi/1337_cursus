@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -11,6 +12,10 @@
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+=======
+
+#include "get_next_line.h"
+>>>>>>> 93c1de0b0e43cecccdc7fbee6eeed215ca0561b3
 
 size_t	ft_strlen(const char *str)
 {
@@ -70,7 +75,11 @@ char	*ft_strchr(const char *s, int c)
 
 char	*ft_truncate_left(char *str)
 {
+<<<<<<< HEAD
 	int		len;
+=======
+	int	len;
+>>>>>>> 93c1de0b0e43cecccdc7fbee6eeed215ca0561b3
 	char	*res;
 
 	len = 0;
