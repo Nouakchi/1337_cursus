@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:03:09 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/27 20:03:44 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/27 20:33:16 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +15,6 @@
 char	*ft_read_line(int fd, char *reserve)
 {
 	char	*buff;
-=======
-
-#include "get_next_line_bonus.h"
-
-char *ft_read_line(int fd, char *reserve)
-{
-	char			*buff;
->>>>>>> 93c1de0b0e43cecccdc7fbee6eeed215ca0561b3
 	int		check;
 
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
@@ -47,23 +38,14 @@ char *ft_read_line(int fd, char *reserve)
 
 char	*get_next_line(int fd)
 {
-<<<<<<< HEAD
 	static char	*reserve[4096];
 	char		*result;
-=======
-	static char		*reserve[4096];
-	char *result;
->>>>>>> 93c1de0b0e43cecccdc7fbee6eeed215ca0561b3
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (0);
 	reserve[fd] = ft_read_line(fd, reserve[fd]);
 	if (!reserve[fd])
-<<<<<<< HEAD
 		return (NULL);
-=======
-		return(NULL);
->>>>>>> 93c1de0b0e43cecccdc7fbee6eeed215ca0561b3
 	result = ft_truncate_left(reserve[fd]);
 	reserve[fd] = ft_truncate_right(&reserve[fd]);
 	return (result);

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,17 +6,12 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:03:53 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/27 20:07:07 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/27 20:33:27 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
-=======
-
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
->>>>>>> 93c1de0b0e43cecccdc7fbee6eeed215ca0561b3
 
 # include <stdlib.h> 
 # include <unistd.h>
