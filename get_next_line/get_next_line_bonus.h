@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:03:53 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/27 20:33:27 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/29 00:15:20 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h> 
 # include <unistd.h>
+# include <limits.h>
 
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char **s1, char **s2);

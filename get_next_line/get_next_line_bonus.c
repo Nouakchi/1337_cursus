@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:03:09 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/27 20:33:16 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/29 00:15:03 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_read_line(int fd, char *reserve)
 
 char	*get_next_line(int fd)
 {
-	static char	*reserve[4096];
+	static char	*reserve[OPEN_MAX];
 	char		*result;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)

@@ -11,6 +11,7 @@ all: ${NAME}
 
 ${NAME}: ${OBJS} ft_printf.h
 	ar -rcs ${NAME} ${OBJS}
+
 *.o:*.c ft_printf.h
 	${CC} ${CFLAGS} -c $<
 

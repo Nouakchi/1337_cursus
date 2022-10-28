@@ -6,14 +6,14 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:05:45 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/27 20:34:02 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/10/29 00:13:10 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include<stdlib.h> 
+# include <stdlib.h> 
 # include <unistd.h>
 
 size_t	ft_strlen(const char *str);
