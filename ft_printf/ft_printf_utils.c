@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 22:11:01 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/29 00:00:41 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/11/01 04:10:33 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,14 @@ void	ft_putchar(char c, int *counter)
 
 void	ft_putstr(char *s, int *counter)
 {
-	while (*s)
-		ft_putchar(*s++, counter);
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		*counter += 6;
+	}
+	else
+		while (*s)
+			ft_putchar(*s++, counter);
 }
 
 void	ft_putnbr(int n, int *counter)
@@ -53,11 +59,6 @@ void	ft_putnbr_base(unsigned int n, int sign, int *counter)
 		base = "0123456789abcdef";
 	else
 		base = "0123456789ABCDEF";
-	if (n < 0)
-	{
-		ft_putchar('-', counter);
-		n *= -1;
-	}
 	if (n >= 16)
 	{
 		ft_putnbr_base(n / 16, sign, counter);
@@ -67,7 +68,7 @@ void	ft_putnbr_base(unsigned int n, int sign, int *counter)
 		ft_putchar(base[n], counter);
 }
 
-void	ft_put_adrss(unsigned long long n, int *counter)
+void	ft_put_adrss(unsigned long n, int *counter)
 {
 	char	*base;
 

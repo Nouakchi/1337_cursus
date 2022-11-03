@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 22:10:44 by onouakch          #+#    #+#             */
-/*   Updated: 2022/10/29 00:00:47 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/11/02 01:07:52 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	print(const char *str, va_list ap, int *counter)
 	{
 		write(1, "0x", 2);
 		*counter = *counter + 2;
-		ft_put_adrss(va_arg(ap, unsigned long int), counter);
+		ft_put_adrss(va_arg(ap, unsigned long), counter);
 	}
 	else if (*str == 'u')
 		ft_put_u_nbr(va_arg(ap, unsigned int), counter);
@@ -50,23 +50,26 @@ void	print(const char *str, va_list ap, int *counter)
 int	ft_printf(const char *str, ...)
 {
 	va_list		ap;
-	int			i;
 	int			counter;
 
 	va_start(ap, str);
-	i = 0;
 	counter = 0;
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == '%')
+		if (*str == '%')
 		{
-			i++;
-			print(&str[i], ap, &counter);
-			i++;
+			if (*(str + 1) == '\0')
+			{
+				write(1, "", 1);
+				break ;
+			}
+			else
+				print(str + 1, ap, &counter);
+			str += 2;
 		}
 		else
 		{
-			write(1, &str[i++], 1);
+			write(1, str++, 1);
 			counter++;
 		}
 	}

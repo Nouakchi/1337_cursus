@@ -9,10 +9,10 @@ NAME = libftprintf.a
 
 all: ${NAME} 
 
-${NAME}: ${OBJS} ft_printf.h
+${NAME}: ${OBJS} 
 	ar -rcs ${NAME} ${OBJS}
 
-*.o:*.c ft_printf.h
+%.o:%.c
 	${CC} ${CFLAGS} -c $<
 
 clean:
