@@ -5,16 +5,16 @@ static void updt_plyr_i(char presse_key, t_play *play)
     mlx_destroy_image(play->mlx_ptr, play->ply_i);
 	if (presse_key == 'w')
 		play->ply_i = mlx_xpm_file_to_image
-			(play->mlx_ptr, "resources/images/PD.xpm", &play->i_w, &play->i_h);
+			(play->mlx_ptr, "textures/PD.xpm", &play->i_w, &play->i_h);
 	else if (presse_key == 's')
 		play->ply_i = mlx_xpm_file_to_image
-			(play->mlx_ptr, "resources/images/PA.xpm", &play->i_w, &play->i_h);
+			(play->mlx_ptr, "textures/PA.xpm", &play->i_w, &play->i_h);
 	else if (presse_key == 'd')
 		play->ply_i = mlx_xpm_file_to_image
-			(play->mlx_ptr, "resources/images/PD.xpm", &play->i_w, &play->i_h);
+			(play->mlx_ptr, "textures/PD.xpm", &play->i_w, &play->i_h);
 	else if (presse_key == 'a')
 		play->ply_i = mlx_xpm_file_to_image
-			(play->mlx_ptr, "resources/images/PA.xpm", &play->i_w, &play->i_h);
+			(play->mlx_ptr, "textures/PA.xpm", &play->i_w, &play->i_h);
 }
 
 void    ft_play_vetc(t_play *play, char presse_key, int move)

@@ -20,7 +20,7 @@ static void	draw_ext(t_play *play, int x, int y)
 	{
 		mlx_destroy_image(play->mlx_ptr, play->exit_i);
 		play->exit_i = mlx_xpm_file_to_image
-			(play->mlx_ptr, "resources/images/E2.xpm", &play->i_w, &play->i_h);
+			(play->mlx_ptr, "textures/E2.xpm", &play->i_w, &play->i_h);
 	}
 	draw_i(play, play->exit_i, x, y);
 }
@@ -59,7 +59,7 @@ void	died(t_play *play)
 	mlx_destroy_image(play->mlx_ptr, play->ply_i);
 	mlx_clear_window(play->mlx_ptr, play->win_ptr);
 	play->ply_i = mlx_xpm_file_to_image
-		(play->mlx_ptr, "resources/images/T.xpm", &play->i_w, &play->i_h);
+		(play->mlx_ptr, "textures/T.xpm", &play->i_w, &play->i_h);
 	play->game_over = 1;
 	map_draw(play);
 }

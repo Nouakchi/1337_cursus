@@ -3,17 +3,17 @@
 static void	img_init(t_play *play)
 {
 	play->back_i = mlx_xpm_file_to_image
-		(play->mlx_ptr, "resources/images/0.xpm", &play->i_w, &play->i_h);
+		(play->mlx_ptr, "textures/0.xpm", &play->i_w, &play->i_h);
 	play->wall_i = mlx_xpm_file_to_image
-		(play->mlx_ptr, "resources/images/1.xpm", &play->i_w, &play->i_h);
+		(play->mlx_ptr, "textures/1.xpm", &play->i_w, &play->i_h);
 	play->ply_i = mlx_xpm_file_to_image
-		(play->mlx_ptr, "resources/images/PD.xpm", &play->i_w, &play->i_h);
+		(play->mlx_ptr, "textures/PD.xpm", &play->i_w, &play->i_h);
 	play->collt_i = mlx_xpm_file_to_image
-		(play->mlx_ptr, "resources/images/C.xpm", &play->i_w, &play->i_h);
+		(play->mlx_ptr, "textures/C.xpm", &play->i_w, &play->i_h);
 	play->exit_i = mlx_xpm_file_to_image
-		(play->mlx_ptr, "resources/images/E1.xpm", &play->i_w, &play->i_h);
+		(play->mlx_ptr, "textures/E1.xpm", &play->i_w, &play->i_h);
 	play->enemie_i= mlx_xpm_file_to_image
-		(play->mlx_ptr, "resources/images/EN1.xpm", &play->i_w, &play->i_h);
+		(play->mlx_ptr, "textures/EN1.xpm", &play->i_w, &play->i_h);
 }
 
 static void	set_win_size(t_play *play)

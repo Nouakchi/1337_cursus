@@ -1,7 +1,7 @@
 # -*- Makefile -*-
 
-NAME := play
-BNAME := play_bonus
+NAME := so_long
+BNAME := so_long_bonus
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
 PTH := ./Mandatory
@@ -17,7 +17,7 @@ SRCS := so_long.c \
 		game_over.c \
 		start_play.c \
 		update_ply.c \
-		valid_path.c
+		valid_path.c 
 BSRCS := so_long_bonus.c \
  		read_map_bonus.c \
 		ft_split_bonus.c \
@@ -33,16 +33,17 @@ BSRCS := so_long_bonus.c \
 		ft_itoa.c \
 		ft_strdup.c \
 		ft_strlcpy.c \
-		sprite.c 
+		sprite.c \
+		valid_path_bonus.c
 SRCS_FILES := $(addprefix $(PTH)/, $(SRCS))
 BSRCS_FILES := $(addprefix $(BPTH)/, $(BSRCS))
 OSRCS := ${SRCS_FILES:.c=.o}
 OBSRCS := ${BSRCS_FILES:.c=.o}
-IncLibx := -L.. -lmlx -lXext -lX11
+IncLibx := -L /usr/local/lib/ -lmlx -framework OpenGl -framework AppKit
 all:	${NAME}
 
 ${NAME}: ${OSRCS}
-	${CC} ${CFLAGS} ${OSRCS} ${IncLibx} -g -o ${NAME}
+	${CC} -I /usr/local/include ${SRCS_FILES} ${IncLibx} -g -o ${NAME}
 bonus:	${OBSRCS}
 	${CC} ${CFLAGS} ${OBSRCS} ${IncLibx} -o ${BNAME}
 .c.o:
@@ -50,7 +51,7 @@ bonus:	${OBSRCS}
 clean: 
 	rm -f ${OSRCS} ${OBSRCS}
 fclean: clean
-	rm -f ${NAME}
+	rm -f ${NAME} ${BNAME}
 re: fclean all
 
 .PHONY: all clean fclean re bonus

@@ -18,7 +18,7 @@ int	game_over(t_play *play)
 	mlx_destroy_image(play->mlx_ptr, play->back_i);
 	mlx_destroy_image(play->mlx_ptr, play->wall_i);
 	mlx_destroy_image(play->mlx_ptr, play->ply_i);
-	mlx_destroy_display(play->mlx_ptr);
+	mlx_destroy_image(play->mlx_ptr, play->enemie_i);
 	free_map(play->map);
 	free(play->mlx_ptr);
 	exit(0);

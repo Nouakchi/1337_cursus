@@ -12,15 +12,22 @@ int check_ext(char *str)
         return (1);
     return (0);
 }
+void f()
+{
+    system("leaks so_long");
+}
 
 int main(int ac, char **av)
 {
     t_play play;
 
+    
+   atexit(f);
     if (ac == 2)
     {
         play.map = ft_read_map(av[1]);
-        if (check_ext(av[1]) && valid_map(&play) /*&& valid_path(&play)*/)
+        char **mp = ft_read_map(av[1]);
+        if (check_ext(av[1]) && valid_map(&play) && valid_path(&play, mp))
         {
             paly_init(&play);
             start_play(&play);

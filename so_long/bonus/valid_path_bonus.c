@@ -1,4 +1,4 @@
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static void set_p_e_pos(t_play *play)
 {
@@ -29,7 +29,7 @@ static int find_path(int s_y, int s_x, int d_y, int d_x, char **a)
 {
     if (s_x == d_x && s_y == d_y)
         return (1);
-    else if (a[s_y][s_x] == '1')
+    else if (a[s_y][s_x] == '1' || a[s_y][s_x] == 'K' )
         return (0);
     a[s_y][s_x] = '1';
     if (find_path(s_y, s_x + 1, d_y, d_x, a)) return (1);
