@@ -30,6 +30,8 @@ typedef struct s_play
 	int 	startp;
 	int		x_ply_cord;
 	int		y_ply_cord;
+	int 	x_exit_cord;
+    int 	y_exit_cord;
 	int 	moves;
 	int 	game_over;
 }	t_play;
@@ -44,5 +46,6 @@ void    ft_play_vetc(t_play *play, char presse_key, int move);
 void    ft_play_horz(t_play *play, char presse_key, int move);
 void	free_map(char **map);
 int		game_over(t_play *play);
+int 	valid_path(t_play *play);
 
 #endif

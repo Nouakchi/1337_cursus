@@ -16,7 +16,8 @@ SRCS := so_long.c \
 		play_init.c \
 		game_over.c \
 		start_play.c \
-		update_ply.c
+		update_ply.c \
+		valid_path.c
 BSRCS := so_long_bonus.c \
  		read_map_bonus.c \
 		ft_split_bonus.c \
@@ -32,7 +33,7 @@ BSRCS := so_long_bonus.c \
 		ft_itoa.c \
 		ft_strdup.c \
 		ft_strlcpy.c \
-		sprite.c
+		sprite.c 
 SRCS_FILES := $(addprefix $(PTH)/, $(SRCS))
 BSRCS_FILES := $(addprefix $(BPTH)/, $(BSRCS))
 OSRCS := ${SRCS_FILES:.c=.o}

@@ -20,7 +20,7 @@ int main(int ac, char **av)
     if (ac == 2)
     {
         play.map = ft_read_map(av[1]);
-        if (check_ext(av[1]) && valid_map(&play))
+        if (check_ext(av[1]) && valid_map(&play) /*&& valid_path(&play)*/)
         {
             paly_init(&play);
             start_play(&play);
