@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 21:19:34 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/29 21:33:00 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -59,7 +70,7 @@ char	*ft_strchr(const char *s, int c)
 
 char	*ft_truncate_left(char *str)
 {
-	int	len;
+	int		len;
 	char	*res;
 
 	len = 0;

@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 20:39:55 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/29 20:40:32 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft_bonus.h"
 
 #define BUFFER_SIZE 1
 
-char *ft_read_line(int fd, char *reserve)
+char	*ft_read_line(int fd, char *reserve)
 {
-	char			*buff;
+	char	*buff;
 	int		check;
 
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
@@ -29,14 +40,14 @@ char *ft_read_line(int fd, char *reserve)
 
 char	*get_next_line(int fd)
 {
-	static char		*reserve = NULL;
-	char *result;
+	static char	*reserve = NULL;
+	char		*result;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (0);
 	reserve = ft_read_line(fd, reserve);
 	if (!reserve)
-		return(NULL);
+		return (NULL);
 	result = ft_truncate_left(reserve);
 	reserve = ft_truncate_right(&reserve);
 	return (result);

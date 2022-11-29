@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   play_init_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 20:41:08 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/29 20:42:01 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
 static void	img_init(t_play *play)
@@ -12,7 +24,7 @@ static void	img_init(t_play *play)
 		(play->mlx_ptr, "textures/C.xpm", &play->i_w, &play->i_h);
 	play->exit_i = mlx_xpm_file_to_image
 		(play->mlx_ptr, "textures/E1.xpm", &play->i_w, &play->i_h);
-	play->enemie_i= mlx_xpm_file_to_image
+	play->enemie_i = mlx_xpm_file_to_image
 		(play->mlx_ptr, "textures/EN1.xpm", &play->i_w, &play->i_h);
 }
 
@@ -27,15 +39,16 @@ static void	set_win_size(t_play *play)
 	play->m_h = i * 64 + 64;
 }
 
-void    paly_init(t_play *play)
+void	paly_init(t_play *play)
 {
-    play->mlx_ptr = mlx_init();
-    set_win_size(play);
-    play->win_ptr = mlx_new_window(play->mlx_ptr, play->m_w, play->m_h, "so_long");
-    play->game_over = 0;
-    play->moves = 0;
+	play->mlx_ptr = mlx_init();
+	set_win_size(play);
+	play->win_ptr = mlx_new_window(play->mlx_ptr,
+			play->m_w, play->m_h, "so_long");
+	play->game_over = 0;
+	play->moves = 0;
 	play->enemie_p = 1;
 	play->loop = 0;
-    img_init(play);
-    map_draw(play);
+	img_init(play);
+	map_draw(play);
 }

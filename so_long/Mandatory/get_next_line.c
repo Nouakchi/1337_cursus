@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 21:19:40 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/29 21:20:01 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
 #define BUFFER_SIZE 1
 
-char *ft_read_line(int fd, char *reserve)
+char	*ft_read_line(int fd, char *reserve)
 {
-	char			*buff;
+	char	*buff;
 	int		check;
 
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
@@ -30,13 +41,13 @@ char *ft_read_line(int fd, char *reserve)
 char	*get_next_line(int fd)
 {
 	static char		*reserve = NULL;
-	char *result;
+	char			*result;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (0);
 	reserve = ft_read_line(fd, reserve);
 	if (!reserve)
-		return(NULL);
+		return (NULL);
 	result = ft_truncate_left(reserve);
 	reserve = ft_truncate_right(&reserve);
 	return (result);

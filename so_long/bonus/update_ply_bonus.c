@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   update_ply_bonus.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 20:53:27 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/29 20:53:56 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
-static void updt_plyr_i(char presse_key, t_play *play)
+static void	updt_plyr_i(char presse_key, t_play *play)
 {
-    mlx_destroy_image(play->mlx_ptr, play->ply_i);
+	mlx_destroy_image(play->mlx_ptr, play->ply_i);
 	if (presse_key == 'w')
 		play->ply_i = mlx_xpm_file_to_image
 			(play->mlx_ptr, "textures/PD.xpm", &play->i_w, &play->i_h);
@@ -17,9 +29,9 @@ static void updt_plyr_i(char presse_key, t_play *play)
 			(play->mlx_ptr, "textures/PA.xpm", &play->i_w, &play->i_h);
 }
 
-void    ft_play_vetc(t_play *play, char presse_key, int move)
+void	ft_play_vetc(t_play *play, char presse_key, int move)
 {
-    updt_plyr_i(presse_key, play);
+	updt_plyr_i(presse_key, play);
 	if (play->map[play->y_ply_cord][play->x_ply_cord] == 'E'
 			&& play->collect == 0)
 	{
@@ -46,9 +58,9 @@ void    ft_play_vetc(t_play *play, char presse_key, int move)
 	}
 }
 
-void    ft_play_horz(t_play *play, char presse_key, int move)
+void	ft_play_horz(t_play *play, char presse_key, int move)
 {
-    updt_plyr_i(presse_key, play);
+	updt_plyr_i(presse_key, play);
 	if (play->map[play->y_ply_cord][play->x_ply_cord] == 'E'
 			&& play->collect == 0)
 	{
@@ -74,4 +86,3 @@ void    ft_play_horz(t_play *play, char presse_key, int move)
 		map_draw(play);
 	}
 }
-

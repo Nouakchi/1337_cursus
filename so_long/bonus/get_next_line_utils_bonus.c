@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 20:40:42 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/29 20:55:56 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft_bonus.h"
 
@@ -59,7 +70,7 @@ char	*ft_strchr(const char *s, int c)
 
 char	*ft_truncate_left(char *str)
 {
-	int	len;
+	int		len;
 	char	*res;
 
 	len = 0;

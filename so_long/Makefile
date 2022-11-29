@@ -17,7 +17,9 @@ SRCS := so_long.c \
 		game_over.c \
 		start_play.c \
 		update_ply.c \
-		valid_path.c 
+		valid_path.c \
+		ft_printf_utils.c \
+		ft_printf.c
 BSRCS := so_long_bonus.c \
  		read_map_bonus.c \
 		ft_split_bonus.c \
@@ -34,22 +36,20 @@ BSRCS := so_long_bonus.c \
 		ft_strdup.c \
 		ft_strlcpy.c \
 		sprite.c \
-		valid_path_bonus.c
+		valid_path_bonus.c \
+		ft_printf_utils_bonus.c \
+		ft_printf_bonus.c
 
 SRCS_FILES := $(addprefix $(PTH)/, $(SRCS))
 BSRCS_FILES := $(addprefix $(BPTH)/, $(BSRCS))
 OSRCS := ${SRCS_FILES:.c=.o}
 OBSRCS := ${BSRCS_FILES:.c=.o}
-IncLibx := -L.. -lmlx -framework OpenGl -framework AppKit
-# IncLibx := -L.. -lmlx -lXext -lX11
-# IncLibx := -L ./ -lmlx -lXext -lX11
+IncLibx := -L /usr/local/lib -lmlx -framework OpenGl -framework AppKit
+
 all:	${NAME}
 
 ${NAME}: ${OSRCS}
 	${CC} ${CFLAGS} -I /usr/local/includes ${SRCS_FILES} ${IncLibx} -o ${NAME}
-
-# ${NAME}: ${OSRCS}
-# 	${CC} ${CFLAGS} -I mlx.h ${OSRCS} ${IncLibx} -g -o ${NAME}
 	
 bonus:	${OBSRCS}
 	${CC} ${CFLAGS} ${OBSRCS} ${IncLibx} -o ${BNAME}

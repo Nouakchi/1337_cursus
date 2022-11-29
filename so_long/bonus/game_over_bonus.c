@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game_over_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 20:39:46 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/29 20:49:28 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
 void	free_map(char **map)
@@ -12,7 +24,7 @@ void	free_map(char **map)
 
 int	game_over(t_play *play)
 {
-    mlx_destroy_image(play->mlx_ptr, play->collt_i);
+	mlx_destroy_image(play->mlx_ptr, play->collt_i);
 	mlx_destroy_image(play->mlx_ptr, play->exit_i);
 	mlx_destroy_image(play->mlx_ptr, play->back_i);
 	mlx_destroy_image(play->mlx_ptr, play->wall_i);

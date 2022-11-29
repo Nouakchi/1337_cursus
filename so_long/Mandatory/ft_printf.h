@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 21:20:07 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/29 21:20:08 by onouakch         ###   ########.fr       */
+/*   Created: 2022/11/29 21:19:10 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/29 21:19:12 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-# include<stdlib.h> 
+# include <stdarg.h>
 # include <unistd.h>
 
-size_t	ft_strlen(const char *str);
-char	*ft_strjoin(char **s1, char **s2);
-char	*ft_strchr(const char *s, int c);
-char	*ft_truncate_left(char *str);
-char	*ft_truncate_right(char **str);
-char	*ft_read_line(int fd, char *reserve);
-char	*get_next_line(int fd);
-char	**ft_split(char const *s, char c);
+void	ft_putchar(char c, int *counter);
+void	ft_putstr(char *s, int *counter);
+void	ft_putnbr(int n, int *counter);
+void	ft_putnbr_base(unsigned int n, int sign, int *counter);
+void	print(const char *str, va_list ap, int *counter);
+int		ft_printf(const char *str, ...);
+void	ft_put_u_nbr(unsigned int n, int *counter);
+void	ft_put_adrss(unsigned long n, int *counter);
 
 #endif
