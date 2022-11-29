@@ -40,11 +40,19 @@ static int find_path(int s_y, int s_x, int d_y, int d_x, char **a)
     return (0);
 }
 
-int valid_path(t_play *play, char **map)
+int valid_path(t_play *play, char *map_path)
 {
+
+    char **map;
+    
+    map = ft_read_map(map_path);
     set_p_e_pos(play);
     if (find_path(play->y_ply_cord, play->x_ply_cord,
                     play->y_exit_cord, play->x_exit_cord, map))
+    {
+        free_map(map);
         return (1);
+    }
+    free_map(map);
     return (0);
 }

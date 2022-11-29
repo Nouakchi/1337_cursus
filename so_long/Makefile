@@ -35,15 +35,22 @@ BSRCS := so_long_bonus.c \
 		ft_strlcpy.c \
 		sprite.c \
 		valid_path_bonus.c
+
 SRCS_FILES := $(addprefix $(PTH)/, $(SRCS))
 BSRCS_FILES := $(addprefix $(BPTH)/, $(BSRCS))
 OSRCS := ${SRCS_FILES:.c=.o}
 OBSRCS := ${BSRCS_FILES:.c=.o}
-IncLibx := -L /usr/local/lib/ -lmlx -framework OpenGl -framework AppKit
+# IncLibx := -L /usr/local/lib/ -lmlx -framework OpenGl -framework AppKit
+# IncLibx := -L.. -lmlx -lXext -lX11
+IncLibx := -L /usr/local/lib/ -lmlx -lXext -lX11
 all:	${NAME}
 
+# ${NAME}: ${OSRCS}
+# 	${CC} -I /usr/local/include ${SRCS_FILES} ${IncLibx} -g -o ${NAME}
+
 ${NAME}: ${OSRCS}
-	${CC} -I /usr/local/include ${SRCS_FILES} ${IncLibx} -g -o ${NAME}
+	${CC} ${CFLAGS} ${OSRCS} ${IncLibx} -g -o ${NAME}
+	
 bonus:	${OBSRCS}
 	${CC} ${CFLAGS} ${OBSRCS} ${IncLibx} -o ${BNAME}
 .c.o:

@@ -29,9 +29,8 @@ void    paly_init(t_play *play)
 {
     play->mlx_ptr = mlx_init();
     set_win_size(play);
-    play->win_ptr = mlx_new_window(play->mlx_ptr, play->m_w, play->m_h, "so_long_bonus");
+    play->win_ptr = mlx_new_window(play->mlx_ptr, play->m_w, play->m_h, "so_long");
     play->game_over = 0;
-    play->moves = 0;
     img_init(play);
     map_draw(play);
 }

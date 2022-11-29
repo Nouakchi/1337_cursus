@@ -50,3 +50,4 @@ int	map_draw(t_play *play)
 	}
 	return (0);
 }
+
