@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 21:17:24 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/30 09:36:32 by onouakch         ###   ########.fr       */
+/*   Created: 2022/11/29 20:24:59 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/30 11:52:53 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	wall_surrounded(char **map)
 static int	is_valid(char c)
 {
 	if (c != 'P' && c != 'E' && c != 'C'
-		&& c != '0' && c != '1')
+		&& c != '0' && c != '1' && c != 'K')
 		return (0);
 	return (1);
 }

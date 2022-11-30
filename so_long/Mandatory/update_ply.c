@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 21:31:19 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/29 21:31:21 by onouakch         ###   ########.fr       */
+/*   Created: 2022/11/29 20:53:27 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/30 11:52:53 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	ft_play_vetc(t_play *play, char presse_key, int move)
 		play->game_over = 1;
 		map_draw(play);
 	}
+	else if (play->map[play->y_ply_cord][play->x_ply_cord] == 'K')
+		died(play);
 	else if (play->map[play->y_ply_cord][play->x_ply_cord] == '1'
 			|| play->map[play->y_ply_cord][play->x_ply_cord] == 'E')
 		play->x_ply_cord += move;
@@ -68,6 +70,8 @@ void	ft_play_horz(t_play *play, char presse_key, int move)
 		play->game_over = 1;
 		map_draw(play);
 	}
+	else if (play->map[play->y_ply_cord][play->x_ply_cord] == 'K')
+		died(play);
 	else if (play->map[play->y_ply_cord][play->x_ply_cord] == '1'
 			|| play->map[play->y_ply_cord][play->x_ply_cord] == 'E')
 		play->y_ply_cord += move;

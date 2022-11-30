@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 21:20:07 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/29 23:08:18 by onouakch         ###   ########.fr       */
+/*   Created: 2022/11/29 20:40:49 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/30 22:41:34 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,8 @@ char	*ft_truncate_right(char **str);
 char	*ft_read_line(int fd, char *reserve);
 char	*get_next_line(int fd);
 char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
+char	*ft_strdup(const char *s1);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 #endif

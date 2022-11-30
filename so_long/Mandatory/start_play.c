@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 21:28:32 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/30 09:56:24 by onouakch         ###   ########.fr       */
+/*   Created: 2022/11/29 20:50:55 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/30 11:52:53 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ static int	handle_press(int key, t_play *play)
 
 void	start_play(t_play *play)
 {
-	mlx_hook(play->win_ptr, KEYPRESS, 0,
-		handle_press, play);
-	mlx_hook(play->win_ptr, DESTROYNOTIFY, 0,
-		game_over, play);
+	mlx_hook(play->win_ptr, KEYPRESS, 0, handle_press, play);
+	mlx_hook(play->win_ptr, DESTROYNOTIFY, 0, game_over, play);
+	mlx_loop_hook(play->mlx_ptr, sprite_animation, play);
 }

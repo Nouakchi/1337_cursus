@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 21:19:27 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/29 22:48:49 by onouakch         ###   ########.fr       */
+/*   Created: 2022/11/29 20:39:46 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/30 11:52:53 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	game_over(t_play *play)
 	mlx_destroy_image(play->mlx_ptr, play->back_i);
 	mlx_destroy_image(play->mlx_ptr, play->wall_i);
 	mlx_destroy_image(play->mlx_ptr, play->ply_i);
+	mlx_destroy_image(play->mlx_ptr, play->enemie_i);
 	mlx_clear_window(play->mlx_ptr, play->win_ptr);
 	mlx_destroy_window(play->mlx_ptr, play->win_ptr);
 	free_map(play->map);

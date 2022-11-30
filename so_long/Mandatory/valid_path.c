@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 21:32:33 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/30 08:38:48 by onouakch         ###   ########.fr       */
+/*   Created: 2022/11/29 20:54:12 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/30 11:52:53 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	find_path(t_cords cords, char **a)
 	d_y = cords.d_y;
 	if (s_x == d_x && s_y == d_y)
 		return (1);
-	else if (a[s_y][s_x] == '1')
+	else if (a[s_y][s_x] == '1' || a[s_y][s_x] == 'K')
 		return (0);
 	a[s_y][s_x] = '1';
 	if (find_path((t_cords){s_y, s_x + 1, d_y, d_x}, a))

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 21:27:16 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/30 11:30:43 by onouakch         ###   ########.fr       */
+/*   Created: 2022/11/29 20:44:46 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/30 22:41:21 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_play
 	void	*ply_i;
 	void	*collt_i;
 	void	*exit_i;
+	void	*enemie_i;
 	char	**map;
 	int		i_h;
 	int		i_w;
@@ -54,6 +55,8 @@ typedef struct s_play
 	int		y_exit_cord;
 	int		moves;
 	int		game_over;
+	int		loop;
+	int		enemie_p;
 }	t_play;
 
 typedef struct s_cords
@@ -74,6 +77,10 @@ void	ft_play_vetc(t_play *play, char presse_key, int move);
 void	ft_play_horz(t_play *play, char presse_key, int move);
 void	free_map(char **map);
 int		game_over(t_play *play);
+int		sprite_animation(t_play *play);
+void	display_moves(t_play *play);
+void	died(t_play *play);
 int		valid_path(t_play *play, char *map_path);
 int		ft_printf(const char *str, ...);
+
 #endif

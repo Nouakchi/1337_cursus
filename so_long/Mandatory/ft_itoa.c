@@ -6,11 +6,11 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:32:50 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/29 20:32:51 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/11/30 11:54:11 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 static int	count_num(int n)
 {

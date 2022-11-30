@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 21:19:40 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/29 21:20:01 by onouakch         ###   ########.fr       */
+/*   Created: 2022/11/29 20:39:55 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/30 11:53:39 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ char	*ft_read_line(int fd, char *reserve)
 
 char	*get_next_line(int fd)
 {
-	static char		*reserve = NULL;
-	char			*result;
+	static char	*reserve = NULL;
+	char		*result;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (0);

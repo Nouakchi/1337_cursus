@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 21:21:56 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/30 11:06:30 by onouakch         ###   ########.fr       */
+/*   Created: 2022/11/29 20:43:49 by onouakch          #+#    #+#             */
+/*   Updated: 2022/11/30 22:27:38 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	check_ext(char *str)
+int	check_ext(char *str)
 {
-	int	i;
+	int		i;
 
 	i = -1;
 	while (str[++i])
@@ -48,6 +48,9 @@ int	main(int ac, char **av)
 		}
 	}
 	else
+	{
 		ft_printf("Invalid args\n");
+		exit(1);
+	}
 	return (0);
 }
