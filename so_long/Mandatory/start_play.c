@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:28:32 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/29 21:30:46 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/11/30 09:56:24 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	check_event(int key, t_play *play)
 		play->y_ply_cord += 1;
 		ft_play_horz(play, 's', -1);
 	}
-	else if (key == D || key == XK_RIGHT)
+	else if (key == XK_D || key == XK_RIGHT)
 	{
 		play->x_ply_cord += 1;
 		ft_play_vetc(play, 'd', -1);

@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:27:16 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/29 21:28:18 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/11/30 11:30:43 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define SO_LONG_H
 
 # include "mlx.h"
-# include <stdlib.h>
-# include <unistd.h>
 # include <fcntl.h>
 # include "libft.h"
 # include "ft_printf.h"

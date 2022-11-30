@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:44:46 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/29 21:09:28 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/11/30 11:38:35 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define SO_LONG_BONUS_H
 
 # include "mlx.h"
-# include <stdlib.h>
-# include <unistd.h>
 # include <fcntl.h>
 # include "libft_bonus.h"
 # include "ft_printf_bonus.h"

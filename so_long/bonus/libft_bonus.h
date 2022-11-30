@@ -6,14 +6,14 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:40:49 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/29 20:40:50 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:07:30 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_BONUS_H
 # define LIBFT_BONUS_H
 
-# include<stdlib.h> 
+# include <stdlib.h> 
 # include <unistd.h>
 
 size_t	ft_strlen(const char *str);

@@ -6,13 +6,13 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:21:56 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/29 21:26:13 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/11/30 11:06:30 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	check_ext(char *str)
+static int	check_ext(char *str)
 {
 	int	i;
 
@@ -33,8 +33,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		play.map = ft_read_map(av[1]);
-		if (check_ext(av[1]) && valid_map(&play)
-			&& valid_path(&play, av[1]))
+		if (check_ext(av[1]) && valid_map(&play) && valid_path(&play, av[1]))
 		{
 			paly_init(&play);
 			start_play(&play);

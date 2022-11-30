@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:50:30 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/29 20:56:09 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/11/30 10:42:46 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	sprite_animation(t_play *play)
 {
-	if (play->loop < 10000)
+	if (play->loop < 20000)
 	{
 		play->loop++;
 		return (0);

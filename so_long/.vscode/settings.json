@@ -1,8 +1,7 @@
 {
-    "C_Cpp.errorSquiggles": "Disabled",
     "files.associations": {
         "so_long_bonus.h": "c",
-        "mlx_int.h": "c",
-        "mlx.h": "c"
-    }
+        "libft_bonus.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

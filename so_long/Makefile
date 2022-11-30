@@ -48,17 +48,21 @@ IncLibx := -L /usr/local/lib -lmlx -framework OpenGl -framework AppKit
 
 all:	${NAME}
 
-${NAME}: ${OSRCS}
+${NAME}: ${OSRCS} ${PTH}/so_long.h
 	${CC} ${CFLAGS} -I /usr/local/includes ${SRCS_FILES} ${IncLibx} -o ${NAME}
 	
-bonus:	${OBSRCS}
-	${CC} ${CFLAGS} ${OBSRCS} ${IncLibx} -o ${BNAME}
+bonus:	${OBSRCS} ${BPTH}/so_long_bonus.h
+	${CC} ${CFLAGS} ${BSRCS_FILES} ${IncLibx} -o ${BNAME}
+
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+
 clean: 
 	rm -f ${OSRCS} ${OBSRCS}
+
 fclean: clean
 	rm -f ${NAME} ${BNAME}
+
 re: fclean all
 
 .PHONY: all clean fclean re bonus
