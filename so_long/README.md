@@ -1,4 +1,4 @@
-# so_long | 42 Madrid
+# so_long | 1337 KHOURIBGA
 
 *And thanks for all the fish! 🐟*
 
