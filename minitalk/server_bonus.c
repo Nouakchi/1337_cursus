@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:49:09 by onouakch          #+#    #+#             */
-/*   Updated: 2022/12/08 14:43:16 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:02:15 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
 #include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+
+void	reinitialise(char *c, int *pid, int *bit)
+{
+	*c = 0;
+	*pid = 0;
+	*bit = 0;
+}
 
 void	handle(int signum, siginfo_t *info, void *s)
 {
@@ -22,34 +27,22 @@ void	handle(int signum, siginfo_t *info, void *s)
 	static int		bit;
 
 	(void)s;
-	if (!pid)
-		pid = info->si_pid;
 	if (pid != info->si_pid)
-	{
-		c = 0;
-		bit = 0;
-		pid = info->si_pid;
-	}
-	c |= (signum == SIGUSR1);
+		reinitialise(&c, &pid, &bit);
+	c = c << 1 | (signum - SIGUSR1);
 	bit++;
 	if (bit == 8)
 	{
 		if (c == '\0')
 		{
 			write(1, "\n", 1);
-			c = 0;
-			bit = 0;
 			kill(info->si_pid, SIGUSR2);
 		}
 		else
-		{
 			write(1, &c, 1);
-			c = 0;
-			bit = 0;
-		}
-		usleep(100);
+		reinitialise(&c, &pid, &bit);
 	}
-	c <<= 1;
+	pid = info->si_pid;
 }
 
 void	ft_putnbr(int n)

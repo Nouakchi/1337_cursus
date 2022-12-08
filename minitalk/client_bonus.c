@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:52:34 by onouakch          #+#    #+#             */
-/*   Updated: 2022/12/08 14:46:24 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:02:10 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,26 +50,22 @@ void	confirm(int signum)
 void	str_to_binary(int pid, char c)
 {
 	int	j;
-	int	c_assci;
 
-	c_assci = c;
 	j = 7;
-	while (j + 1 > 0)
+	while (j >= 0)
 	{
-		if (c_assci >= (1 << j))
-		{
-			c_assci = c_assci - (1 << j);
-			kill(pid, SIGUSR1);
-		}
-		else
+		if (c >> j & 1)
 			kill(pid, SIGUSR2);
-		usleep(100);
+		else
+			kill(pid, SIGUSR1);
+		usleep(500);
 		j--;
 	}
 }
-void send_mssg(pid_t pid, char *str)
+
+void	send_mssg(pid_t pid, char *str)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (str[++i])
@@ -79,7 +75,7 @@ void send_mssg(pid_t pid, char *str)
 
 int	main(int ac, char *av[])
 {
-	pid_t pid;
+	pid_t	pid;
 
 	if (ac == 3)
 	{
@@ -87,7 +83,6 @@ int	main(int ac, char *av[])
 		if (pid > 0)
 		{
 			signal(SIGUSR2, confirm);
-			signal(SIGUSR1, confirm);
 			send_mssg(pid, av[2]);
 		}
 		else
