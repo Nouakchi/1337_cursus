@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 13:18:11 by onouakch          #+#    #+#             */
-/*   Updated: 2022/12/21 17:49:32 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/12/28 16:58:01 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,34 @@ int ft_isorted(t_list *stack_a)
     return (1);
 }
 
+int ft_get_max(t_list *stack)
+{
+    int max;
 
+    if (!stack)
+        exit(1);
+    max = stack->content;
+    while (stack)
+    {
+        if (max < stack->content)
+            max = stack->content;
+        stack = stack->next;
+    }
+    return (max);
+}
+
+int ft_get_min(t_list *stack)
+{
+    int min;
+
+    if (!stack)
+        exit(1);
+    min = stack->content;
+    while (stack)
+    {
+        if (min > stack->content)
+            min = stack->content;
+        stack = stack->next;
+    }
+    return (min);
+}

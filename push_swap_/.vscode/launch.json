@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "/Users/onouakch/Desktop/push_swap_/push_swap",
-            "args": ["39 61 40 98 64 10 67 87 70 30 94 63 58 78 51 33 99 14 23 43"],
+            "args": ["7 3 1 5 18 11 16 6 14 19 8 9 12 13 15 2 20 4 17 10"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

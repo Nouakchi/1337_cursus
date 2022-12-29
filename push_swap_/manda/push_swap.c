@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 15:06:41 by onouakch          #+#    #+#             */
-/*   Updated: 2022/12/27 16:12:39 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/12/29 19:22:35 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,15 +181,37 @@ void    ft_check_push(t_list **stack_a, t_list **stack_b, int h_fst, int h_scd)
 			while (scd_mvmnt-- > 0)
 				ft_reverse_rotate(stack_a, "rra\n");
 	}
-	while (tmp)
+	if (*stack_b && ((* stack_a)->content > ft_get_max(* stack_b) || 
+		(* stack_a)->content < ft_get_min(* stack_b)))
 	{
-		if ((* stack_a)->content > tmp->content && index < tmp->content)
-			index = tmp->content;
-		tmp = tmp->next;
+		index = ft_count_mvmnt(* stack_b, ft_get_min(* stack_b));
+		if (ft_get_index(* stack_b, ft_get_min(* stack_b)) < ft_lstsize(* stack_b) / 2)
+			while (index-- > 0)
+				ft_rotate(stack_b, "ra\n");
+		else
+			while (index-- > 0)
+				ft_reverse_rotate(stack_b, "rra\n");
 	}
-	index = ft_get_index(* stack_b, index);
-	while (index-- > 0)
-			ft_rotate(stack_b, "ra\n");
+	if (*stack_b && ((* stack_a)->content < ft_get_max(* stack_b) && 
+		(* stack_a)->content > ft_get_min(* stack_b)))
+	{
+		int number = (* stack_a)->content;
+		int max = ft_get_min(* stack_b);
+		tmp = * stack_b;
+		while (tmp)
+		{
+			if (tmp->content < number && max < tmp->content)
+				max = tmp->content;
+			tmp = tmp->next;
+		}
+		index = ft_count_mvmnt(* stack_b, max);
+		if (ft_get_index(* stack_b, max) < ft_lstsize(* stack_b) / 2)
+			while (index-- >= 0)
+				ft_rotate(stack_b, "ra\n");
+		else
+			while (index-- > 1)
+				ft_reverse_rotate(stack_b, "rra\n");
+	}
 	ft_push(stack_a, stack_b, "pa\n");
 }
 
@@ -246,9 +268,19 @@ void    ft_push_swap(t_list **stack_a, t_list **stack_b)
 				ft_case100(stack_a, stack_b, start, chunks, arr);
 			start += len;
 		}
-		int i = 11;
-		while (i-- > 0)
+		int index = ft_count_mvmnt(* stack_b, ft_get_max(* stack_b));
+		if (ft_get_index(* stack_b, ft_get_max(* stack_b)) < ft_lstsize(* stack_b) / 2)
+			while (index-- > 0)
+				ft_rotate(stack_b, "ra\n");
+		else
+			while (index-- > 0)
+				ft_reverse_rotate(stack_b, "rra\n");
+		
+		while (ft_lstsize(* stack_b))
+		{
+			ft_push(stack_b, stack_a, "pb\n");
 			ft_reverse_rotate(stack_b, "rra\n");
+		}
 	}
 }
 

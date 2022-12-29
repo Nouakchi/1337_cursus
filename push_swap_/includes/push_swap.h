@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 17:42:56 by onouakch          #+#    #+#             */
-/*   Updated: 2022/12/17 15:11:40 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/12/28 16:58:22 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define PUSH_SWAP_H
 
 void    exit_error(void);
+int     ft_get_max(t_list *stack);
+int     ft_get_min(t_list *stack);
 int     ft_isDigit(char *str);
 int     ft_inList(t_list *lst, int number);
 void    ft_freeArgs(char **arr);
