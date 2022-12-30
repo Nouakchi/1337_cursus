@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 18:00:10 by onouakch          #+#    #+#             */
-/*   Updated: 2022/12/29 19:14:36 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/12/30 19:48:56 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ int main(int ac, char **av)
     ft_push_swap(&stack_a, &stack_b);
     // ft_lstclear(&stack_a, ft_display);
     // printf("------------\n");
-    ft_lstclear(&stack_b, ft_display);
+    ft_lstclear(&stack_a, NULL);
     return (0);
 }

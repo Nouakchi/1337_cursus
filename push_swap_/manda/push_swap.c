@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 15:06:41 by onouakch          #+#    #+#             */
-/*   Updated: 2022/12/29 19:22:35 by onouakch         ###   ########.fr       */
+/*   Updated: 2022/12/30 19:48:41 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,17 +253,17 @@ void    ft_push_swap(t_list **stack_a, t_list **stack_b)
 		ft_case3(stack_a);
 	else if (ft_lstsize(* stack_a) == 5)
 		ft_case5(stack_a, stack_b);
-	else if (ft_lstsize(* stack_a) <= 100)
+	else if (ft_lstsize(* stack_a) <= 500)
 	{
-		times = 5;
+		times = 10;
 		chunks = 0;
 		start = 0;
-		len = ft_lstsize(* stack_a) / 5;
+		len = ft_lstsize(* stack_a) / 10;
 		arr = ft_arr_fillsorted(* stack_a);
 		while (times--)
 		{
 			chunks += len;
-			int x = 20;
+			int x = 50;
 			while (x-- > 0)
 				ft_case100(stack_a, stack_b, start, chunks, arr);
 			start += len;
@@ -275,11 +275,12 @@ void    ft_push_swap(t_list **stack_a, t_list **stack_b)
 		else
 			while (index-- > 0)
 				ft_reverse_rotate(stack_b, "rra\n");
-		
-		while (ft_lstsize(* stack_b))
+		int i = ft_lstsize(* stack_b);
+		while (i-- > 0)
 		{
 			ft_push(stack_b, stack_a, "pb\n");
-			ft_reverse_rotate(stack_b, "rra\n");
+			if (i > 1)
+				ft_reverse_rotate(stack_b, "rra\n");
 		}
 	}
 }
