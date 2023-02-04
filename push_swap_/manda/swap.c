@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 13:20:57 by onouakch          #+#    #+#             */
-/*   Updated: 2023/01/16 17:18:24 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/02/04 23:01:29 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 
 void	ft_swap(t_list **stack, char *str)
 {
-	int	tmp;
-
 	if (!ft_lstsize(*stack))
 		return ;
-	tmp = (*stack)->content;
-	(*stack)->content = (*stack)->next->content;
-	(*stack)->next->content = tmp;
+	(*stack)->content ^= (*stack)->next->content;
+	(*stack)->next->content ^= (*stack)->content;
+	(*stack)->content ^= (*stack)->next->content;
 	if (str)
 		write(1, str, 3);
 }
