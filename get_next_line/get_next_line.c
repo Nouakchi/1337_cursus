@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:05:17 by onouakch          #+#    #+#             */
-/*   Updated: 2022/11/02 04:42:22 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/02/04 22:58:54 by relkabou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ char	*ft_read_line(int fd, char *reserve)
 	{
 		check = read(fd, buff, BUFFER_SIZE);
 		if (check == -1)
-		{
-			free(buff);
-			return (NULL);
-		}
+			return (free(buff), NULL);
 		buff[check] = '\0';
 		reserve = ft_strjoin(&reserve, &buff);
 	}
@@ -56,22 +53,9 @@ char	*get_next_line(int fd)
 
 int main()
 {
-    int fd = open("test.txt", O_RDONLY);
+    int fd = open("get_next_line.h", O_RDONLY);
    
-        printf("%s",get_next_line(fd));
-		printf("%s",get_next_line(fd));
-		printf("%s",get_next_line(fd));
-		printf("%s",get_next_line(fd));
-		printf("%s",get_next_line(fd));
-		printf("%s",get_next_line(fd));
-		printf("%s",get_next_line(fd));
-		printf("%s",get_next_line(fd));
-		printf("%s",get_next_line(fd));
-		printf("%s",get_next_line(fd));
-		printf("%s",get_next_line(fd));
-		printf("%s",get_next_line(fd));
-		printf("%s",get_next_line(fd));
+	for (char *line = get_next_line(fd); line; free(line), line = get_next_line(fd))
+		printf("%s", line);
 }
-       
-
     
