@@ -1,0 +1,13 @@
+out
+*.swp
+*.o
+*.a
+minishell
+*.tldr
+.vscode
+notes
+output
+test
+test2
+hi
+append
