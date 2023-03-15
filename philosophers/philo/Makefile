@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 
-CC		=	CC
+CC		=	cc
 
 CFLAGS	=	-Wall -Wextra -Werror
 
