@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:11:39 by onouakch          #+#    #+#             */
-/*   Updated: 2023/03/15 20:32:31 by othman           ###   ########.fr       */
+/*   Updated: 2023/03/17 11:53:14 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ typedef struct s_vars
 
 typedef struct s_data
 {
-    t_philo philo;
     t_vars  *vars;
+    int     index;
 }   t_data;
 
 

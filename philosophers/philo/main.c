@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:12:29 by onouakch          #+#    #+#             */
-/*   Updated: 2023/03/17 11:29:30 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:38:26 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,47 +38,50 @@ int     ft_check_forks_availibility(t_data  *args, int f1_index, int f2_index)
 
 int ft_start_by_eating(t_data *args)
 {
-    // int i = 2;
-    // while (i--)
-    // {
-        if (ft_check_forks_availibility(args, args->philo.index - 1, args->vars->nbr_philo - 2))
+    int index;
+
+    index = args->vars->philos[args->index].index;
+    while (1)
+    {
+        if (ft_check_forks_availibility(args, index - 1, index - 2))
             return (-1);
-        printf("philo N %d start eating\n", args->philo.index);
+        printf("philo N %d start eating\n", index);
         usleep(args->vars->t_eat);
-        ft_update_forks(args, args->philo.index - 1, args->philo.index - 2, 0);
-        printf("philo N %d start sleaping\n", args->philo.index);
+        ft_update_forks(args, index - 1, index - 2, 0);
+        printf("philo N %d start sleaping\n", index);
         usleep(args->vars->t_eat);
-        printf("philo N %d start thinking\n", args->philo.index);
-    // }
+        printf("philo N %d start thinking\n", index);
+    }
     return (0);
 }
 
 int ft_start_by_sleeping(t_data *args)
 {
-    // int i = 2;
-    // while (i--)
-    // {
-        printf("philo N %d start sleeping\n", args->philo.index);
+    int index;
+
+    index = args->vars->philos[args->index].index;
+    while (1)
+    {
+        printf("philo N %d start sleeping\n", index);
         usleep(args->vars->t_sleep);
-        printf("|index:%d|\n", args->philo.index);
-        if (args->philo.index == 1)
+        if (index == 1)
         {
             if (ft_check_forks_availibility(args, 0, args->vars->nbr_philo - 1))
                 return (-1);    
         }
         else
         {
-            if (ft_check_forks_availibility(args, args->philo.index - 1, args->vars->nbr_philo - 2))
+            if (ft_check_forks_availibility(args, index - 1, args->vars->nbr_philo - 2))
                 return (-1);
         }
-        printf("philo N %d start eating\n", args->philo.index);
+        printf("philo N %d start eating\n", index);
         usleep(args->vars->t_eat);
-        if (args->philo.index == 1)
+        if (index == 1)
             ft_update_forks(args, 0, args->vars->nbr_philo - 1, 0);
         else
-            ft_update_forks(args, args->philo.index - 1, args->philo.index - 2, 0);
-        printf("philo N %d start thinking\n", args->philo.index);
-    // }
+            ft_update_forks(args, index - 1, index - 2, 0);
+        printf("philo N %d start thinking\n", index);
+    }
     return (0);
 }
 
@@ -87,7 +90,7 @@ void    *live(void *vars)
     t_data  *args;
     
     args = vars;
-    if (args->philo.index % 2 == 0)
+    if (args->vars->philos[args->index].index % 2 == 0)
         ft_start_by_eating(args);
     else
         ft_start_by_sleeping(args);
@@ -109,7 +112,7 @@ void    ft_philos_init(t_vars *vars)
         vars->philos[i].activity = 1;
         vars->current_philo = i;// no need just remove it
         pthread_create(&vars->philos[i].philo, NULL, &live
-                , &(t_data){vars->philos[i], vars});
+                , &(t_data){vars, i});
         usleep(50);
     }
 }
@@ -128,8 +131,8 @@ void    philo_loop(int nbr_philo)
     t_vars  vars;
     
     vars.nbr_philo = nbr_philo;
-    vars.t_die = 300;
-    vars.t_eat = 200;
+    vars.t_die = 500;
+    vars.t_eat = 100;
     vars.t_sleep = 300;
     ft_philos_init(&vars);
     ft_philos_join(&vars);
