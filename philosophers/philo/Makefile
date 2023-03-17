@@ -22,7 +22,7 @@ OBJS_P	=	$(addprefix $(BIN), $(OBJS))
 all:	$(NAME)
 
 $(NAME):	$(OBJS_P)
-	$(CC) $(CFLAGS) $(OBJS_P) -o $@
+	$(CC) $(CFLAGS) $(OBJS_P) -g -o $@
 
 ../bin/%.o:	%.c $(addprefix $(INCLUDES), $(HEADER))
 	$(CC) $(CFLAGS) -c $< -o $@
