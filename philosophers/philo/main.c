@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:12:29 by onouakch          #+#    #+#             */
-/*   Updated: 2023/03/17 12:38:26 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/03/17 15:23:52 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ int     ft_check_forks_availibility(t_data  *args, int f1_index, int f2_index)
     if (args->vars->forks[f1_index].status 
         || args->vars->forks[f2_index].status)
     {
-        printf("philo die !!\n");
+        printf("%d died !!\n", args->vars->philos[args->index].index);
         return (-1);
     }
+    printf("%d  has taken a fork\n", args->vars->philos[args->index].index);
     ft_update_forks(args, f1_index, f2_index, 1);
     return (0);
 }
@@ -41,47 +42,43 @@ int ft_start_by_eating(t_data *args)
     int index;
 
     index = args->vars->philos[args->index].index;
-    while (1)
-    {
-        if (ft_check_forks_availibility(args, index - 1, index - 2))
-            return (-1);
-        printf("philo N %d start eating\n", index);
-        usleep(args->vars->t_eat);
-        ft_update_forks(args, index - 1, index - 2, 0);
-        printf("philo N %d start sleaping\n", index);
-        usleep(args->vars->t_eat);
-        printf("philo N %d start thinking\n", index);
-    }
+    if (ft_check_forks_availibility(args, index - 2, index - 1))
+        return (-1);
+    printf("%d is eating\n", index);
+    usleep(args->vars->t_eat);
+    ft_update_forks(args, index - 2, index - 1, 0);
+    printf("%d is sleaping\n", index);
+    usleep(args->vars->t_eat);
+    printf("%d is thinking\n", index);
     return (0);
 }
 
 int ft_start_by_sleeping(t_data *args)
 {
     int index;
+    int nbr_philos;
 
     index = args->vars->philos[args->index].index;
-    while (1)
+    nbr_philos = args->vars->nbr_philo;
+    printf("%d is sleeping\n", index);
+    usleep(args->vars->t_sleep);
+    if (index == 1)
     {
-        printf("philo N %d start sleeping\n", index);
-        usleep(args->vars->t_sleep);
-        if (index == 1)
-        {
-            if (ft_check_forks_availibility(args, 0, args->vars->nbr_philo - 1))
-                return (-1);    
-        }
-        else
-        {
-            if (ft_check_forks_availibility(args, index - 1, args->vars->nbr_philo - 2))
-                return (-1);
-        }
-        printf("philo N %d start eating\n", index);
-        usleep(args->vars->t_eat);
-        if (index == 1)
-            ft_update_forks(args, 0, args->vars->nbr_philo - 1, 0);
-        else
-            ft_update_forks(args, index - 1, index - 2, 0);
-        printf("philo N %d start thinking\n", index);
+        if (ft_check_forks_availibility(args, nbr_philos - 1, 0))
+            return (-1);    
     }
+    else
+    {
+        if (ft_check_forks_availibility(args, index - 2, index - 1))
+            return (-1);
+    }
+    printf("%d is eating\n", index);
+    usleep(args->vars->t_eat);
+    if (index == 1)
+        ft_update_forks(args, nbr_philos - 1, 0, 0);
+    else
+        ft_update_forks(args, index - 2, index - 1, 0);
+    printf("%d is thinking\n", index);
     return (0);
 }
 
