@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:12:29 by onouakch          #+#    #+#             */
-/*   Updated: 2023/03/20 15:40:49 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:42:01 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int ft_start_by_eating(t_data *args)
     prev = index - 2;
     if (index == 1)
         prev = args->vars->nbr_philo - 1;
-    while (1)
+    while (args->vars->status != 1)
     {
         pthread_mutex_lock(&args->vars->philos[index - 1].mutex);
         pthread_mutex_lock(&args->vars->philos[prev].mutex);
@@ -60,7 +60,7 @@ int ft_start_by_sleeping(t_data *args)
     prev = index - 2;
     if (index == 1)
         prev = args->vars->nbr_philo - 1;
-    while (1)
+    while (args->vars->status != 1)
     {
         printf("%d %d is sleeping\n", (int)get_time() - time_stamp, index);
         usleep(args->vars->t_sleep);
@@ -90,38 +90,6 @@ void    *live(void *vars)
     return (NULL);
 }
 
-// void    *watch(void *vars)
-// {
-//     int i;
-//     t_data  *data;
-    
-//     data = vars;
-//     while (1)
-//     {
-//         i = -1;
-//         data->vars->status = 1;
-//         while(++i < data->vars->nbr_philo)
-//         {
-//             if ((int)get_time() - data->vars->time_stamp - 
-//                 data->vars->philos[i].last_meal > data->vars->t_die)
-//             {
-//                 printf("%d %d died\n"
-//                     , get_time() - data->vars->time_stamp, i + 1);
-//                 data->vars->status = 0;
-//                 break;
-//             }
-//             if (data->vars->philos[i].nbr_meal < data->vars->nbr_philo_eat)
-//             {
-//                 data->vars->status = 0;
-//                 break ;
-//             }
-//         }
-//         if (data->vars->status)
-//             break ;
-//     }
-//     return (&data->vars->status);
-// }
-
 void    *watch(void *vars)
 {
     int i;
@@ -131,7 +99,7 @@ void    *watch(void *vars)
     while (1)
     {
         i = -1;
-        data->vars->status = 1;
+        data->vars->status = -1;
         while(++i < data->vars->nbr_philo)
         {
             if ((int)get_time() - data->vars->time_stamp - 
@@ -139,19 +107,17 @@ void    *watch(void *vars)
             {
                 printf("%d %d died\n"
                     , get_time() - data->vars->time_stamp, i + 1);
-                data->vars->status = 0;
-                break;
+                return (data->vars->status = 1, &data->vars->status);
             }
-            if (data->vars->philos[i].nbr_meal < data->vars->nbr_philo_eat)
-            {
+            if (data->vars->nbr_philo_eat != 0
+                && data->vars->philos[i].nbr_meal < data->vars->nbr_philo_eat)
                 data->vars->status = 0;
-                break ;
-            }
         }
-        if (data->vars->status)
+        if (data->vars->nbr_philo_eat != 0 && data->vars->status == -1)
             break ;
     }
-    return (&data->vars->status);
+    // return (data->vars->status = 1, &data->vars->status);
+    return (data->vars->status = 1, NULL);
 }
 
 void    ft_philos_init(t_vars *vars)
@@ -186,11 +152,8 @@ void    ft_philos_join(t_vars *vars)
     i = -1;
     while (++i < vars->nbr_philo)
         pthread_join(vars->philos[i].philo, NULL);
-    pthread_join(vars->philos[i].philo, (void**) &vars->status);
-    if (vars->status)
-        printf("ok\n");
-    else
-        printf("non ok\n");
+    pthread_join(vars->philos[i].philo, NULL);
+    // pthread_join(vars->philos[i].philo, (void**) &vars->status);
 }
 
 void    philo_loop(int nbr_philo)
@@ -201,7 +164,7 @@ void    philo_loop(int nbr_philo)
     vars.t_die = 310;
     vars.t_eat = 200;
     vars.t_sleep = 100;
-    vars.nbr_philo_eat = 7;
+    vars.nbr_philo_eat = 0;
     ft_philos_init(&vars);
     ft_philos_join(&vars);
 }
