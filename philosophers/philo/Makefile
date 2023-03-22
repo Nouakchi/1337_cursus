@@ -6,7 +6,11 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 NAME	=	philo
 
-SRC		=	main.c	\
+SRC		=	main.c			\
+			philo_routine.c	\
+			utils.c			\
+			state.c			\
+			philosophers.c
 
 HEADER	=	philosophers.h	\
 
