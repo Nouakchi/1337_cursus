@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:11:39 by onouakch          #+#    #+#             */
-/*   Updated: 2023/03/22 13:38:11 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:58:54 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct s_philo
 typedef struct s_vars
 {
 	t_philo				*philos;
+	pthread_mutex_t		*mutex;
+	pthread_mutex_t		*lm_mutex;
 	int					nbr_philo;
 	unsigned long long	time_stamp;
 	unsigned long long	t_die;

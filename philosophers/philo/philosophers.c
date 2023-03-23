@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:36:18 by onouakch          #+#    #+#             */
-/*   Updated: 2023/03/22 13:44:57 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:56:48 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,24 @@ void	ft_mutex_init(pthread_mutex_t	*mutex, pthread_mutex_t	*lm_mutex
 void	ft_philos_init(t_vars *vars)
 {
 	int				i;
-	pthread_mutex_t	*mutex;
-	pthread_mutex_t	*lm_mutex;
-	t_data			*data;
+	t_data			data;
 
 	i = -1;
 	vars->philos = malloc(sizeof(t_philo) * vars->nbr_philo + 1);
-	mutex = malloc(sizeof(pthread_mutex_t) * vars->nbr_philo);
-	lm_mutex = malloc(sizeof(pthread_mutex_t) * vars->nbr_philo);
-	data = malloc(sizeof(t_data));
-	data->vars = vars;
+	vars->mutex = malloc(sizeof(pthread_mutex_t) * vars->nbr_philo);
+	vars->lm_mutex = malloc(sizeof(pthread_mutex_t) * vars->nbr_philo);
+	data.vars = vars;
 	while (++i < vars->nbr_philo)
 	{
 		vars->philos[i].index = i + 1;
 		vars->philos[i].nbr_meal = 0;
 		vars->philos[i].last_meal = get_time();
-		ft_mutex_init(mutex, lm_mutex, vars, i);
-		data->index = i;
-		pthread_create(&vars->philos[i].philo, NULL, &live, data);
+		ft_mutex_init(vars->mutex, vars->lm_mutex, vars, i);
+		data.index = i;
+		pthread_create(&vars->philos[i].philo, NULL, &live, &data);
 		usleep(50);
 	}
-	pthread_create(&vars->philos[i].philo, NULL, &watch, data);
-	return (ft_free_data(vars), free(data));
+	pthread_create(&vars->philos[i].philo, NULL, &watch, &data);
 }
 
 void	ft_philos_join(t_vars *vars)
@@ -62,4 +58,5 @@ void	philo_loop(t_vars *vars)
 {
 	ft_philos_init(vars);
 	ft_philos_join(vars);
+	ft_free_data(vars);
 }

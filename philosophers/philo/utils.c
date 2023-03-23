@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:50:10 by onouakch          #+#    #+#             */
-/*   Updated: 2023/03/22 13:45:07 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:02:55 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	ft_free_data(t_vars *vars)
 		pthread_mutex_destroy(&vars->philos[i].mutex);
 		pthread_mutex_destroy(&vars->philos[i].m_lm);
 	}
+	free(vars->mutex);
+	free(vars->lm_mutex);
 	free(vars->philos);
 }
 

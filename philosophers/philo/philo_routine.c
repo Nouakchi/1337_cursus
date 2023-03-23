@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:50:06 by onouakch          #+#    #+#             */
-/*   Updated: 2023/03/22 13:44:13 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:45:08 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	start2(t_data *args, int index, unsigned long long time_stamp, int prev)
 			break ;
 		printf("%llu %d has taken a fork\n%llu %d is eating\n" \
 			, get_time() - time_stamp, index, get_time() - time_stamp, index);
-		usleep(args->vars->t_eat * 1000);
 		update_data(args, index, prev);
+		usleep(args->vars->t_eat * 1000);
 		if (args->vars->status == 1)
 			break ;
 		printf("%llu %d is sleaping\n", get_time() - time_stamp, index);
-		usleep(args->vars->t_eat * 1000);
+		usleep(args->vars->t_sleep * 1000);
 		if (args->vars->status == 1)
 			break ;
 		printf("%llu %d is thinking\n", get_time() - time_stamp, index);
@@ -68,8 +68,8 @@ void	start(t_data *args, int index, unsigned long long time_stamp, int prev)
 			break ;
 		printf("%llu %d has taken a fork\n%llu %d is eating\n" \
 			, get_time() - time_stamp, index, get_time() - time_stamp, index);
-		usleep(args->vars->t_eat * 1000);
 		update_data(args, index, prev);
+		usleep(args->vars->t_eat * 1000);
 		if (args->vars->status == 1)
 			break ;
 		printf("%llu %d is thinking\n", get_time() - time_stamp, index);
@@ -101,6 +101,7 @@ void	*watch(void *vars)
 	{
 		i = -1;
 		data->vars->status = -1;
+		usleep(5000);
 		while (++i < data->vars->nbr_philo)
 		{
 			last_meal = data->vars->philos[i].last_meal;

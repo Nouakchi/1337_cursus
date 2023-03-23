@@ -6,16 +6,11 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:12:29 by onouakch          #+#    #+#             */
-/*   Updated: 2023/03/22 13:44:43 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:59:05 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philosophers.h"
-
-void	check(void)
-{
-	system("leaks philo");
-}
 
 void	ft_init(t_vars *vars, char *av[])
 {
@@ -24,6 +19,7 @@ void	ft_init(t_vars *vars, char *av[])
 	vars->t_die = ft_atoi(av[2]);
 	vars->t_eat = ft_atoi(av[3]);
 	vars->t_sleep = ft_atoi(av[4]);
+	vars->status = 0;
 }
 
 int	main(int ac, char *av[])
