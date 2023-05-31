@@ -1,7 +1,7 @@
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
-NAME		= megaphone
-OBJS		= megaphone.o
+NAME		= run
+OBJS		= main.o 
 
 all:	$(NAME)
 
@@ -9,12 +9,12 @@ $(NAME):	$(OBJS)
 	$(CPP) $(CPPFLAGS) -o $@ $(OBJS)
 
 %.o:	%.cpp
-	$(CPP) $(CPPFLAGS) -c $<
+	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:	
-	rm -r $(OBJS)
+	rm -rf $(OBJS)
 
 fclean:	clean
-	rm  -r $(NAME)
+	rm -rf $(NAME)
 
 re:	fclean all
