@@ -1,7 +1,7 @@
 CPP				= c++
 CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
 NAME			= run
-OBJS			= main.o Fixed.o Point.o
+OBJS			= main.o Fixed.o Point.o bsp.o
 INCLUDES		= Fixed.hpp Point.hpp
 
 all:	$(NAME)

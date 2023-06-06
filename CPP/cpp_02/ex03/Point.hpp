@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:21:20 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/05 20:01:23 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/06 10:04:09 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ public:
     Point( const Point &point );
     Point &operator = ( const Point &point ) const;
     ~Point();
-    float getX(){return (this->x);}
-    float getY(){return (this->y);}
+    float getX() const;
+    float getY() const;
     
 };
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 # endif
