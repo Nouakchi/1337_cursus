@@ -6,20 +6,20 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:21:20 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/06 10:04:09 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/08 14:33:42 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef __POINT_H__
 # define __POINT_H__
 
-#include <iostream>
+#include "Fixed.hpp"
 
 class Point
 {
 private:
-    const float x;
-    const float y;
+    const Fixed x;
+    const Fixed y;
     
 public:
     Point();

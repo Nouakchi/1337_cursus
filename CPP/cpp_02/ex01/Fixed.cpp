@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:04:10 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/05 15:04:11 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/07 08:38:41 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int Fixed::toInt() const
     return int(double(this->fixed_point) / pow(2, this->fractional_bits));
 }
 
-std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
+std::ostream &operator << (std::ostream &os, const Fixed &fixed)
 {
     os << fixed.toFloat();
     return (os);

@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:22:00 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/06 10:05:02 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/08 14:32:05 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ Point::~Point(){}
 
 float Point::getX() const
 {
-    return (this->x);
+    return (this->x.toFloat());
 }
 
 float Point::getY() const
 {
-    return (this->y);
+    return (this->y.toFloat());
 }

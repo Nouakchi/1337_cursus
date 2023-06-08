@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:03:49 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/05 15:04:03 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/07 08:43:09 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ public:
     float toFloat( void ) const;
     int toInt( void ) const;
 
-    friend std::ostream &operator<<(std::ostream &os, const Fixed &fixed);
 
 };
+    
+std::ostream &operator << (std::ostream &os, const Fixed &fixed);
 
 # endif
