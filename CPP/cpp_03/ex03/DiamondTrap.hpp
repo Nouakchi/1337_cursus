@@ -1,3 +1,7 @@
+
+# ifndef __DIAMONDTRAP_H__
+# define __DIAMONDTRAP_H__
+
 #include <iostream>
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
@@ -16,3 +20,5 @@ public:
     void whoAmI();
     void attack(const std::string& target);
 };
+
+# endif

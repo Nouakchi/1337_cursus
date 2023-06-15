@@ -1,3 +1,7 @@
+
+# ifndef __FRAGTRAP_H__
+# define __FRAGTRAP_H__ 
+
 #include <iostream>
 #include "ClapTrap.hpp"
 
@@ -20,4 +24,4 @@ public:
     std::string getName();
 };
 
-
+# endif

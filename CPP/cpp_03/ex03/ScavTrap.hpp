@@ -1,3 +1,7 @@
+
+# ifndef __SCAVTRAP_H__
+# define __SCAVTRAP_H__
+
 #include <iostream>
 #include "ClapTrap.hpp"
 
@@ -20,4 +24,4 @@ public:
     std::string getName();
 };
 
-
+# endif
