@@ -16,7 +16,9 @@ public:
 
     Animal &operator = ( const Animal &copy );
 
-    void makeSound();
+    std::string getType() const;
+
+    virtual void makeSound() const;
 };
 
 

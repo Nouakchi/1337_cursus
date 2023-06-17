@@ -3,12 +3,8 @@
 
 Dog::Dog() : Animal()
 {
+    this->type = "Dog";
     std::cout << "Dog Deafault constructor\n";
-}
-
-Dog::Dog( std::string type ) : Animal(type)
-{
-    std::cout << "Params constructor for " + type + "\n";
 }
 
 Dog::Dog( const Dog &copy ) : Animal(copy)
@@ -25,9 +21,10 @@ Dog &Dog::operator = (const Dog &copy )
 {
     this->type = copy.type;
     std::cout << "copy assignement for " + type + "\n";
+    return (*this);
 }
 
-void Dog::makeSound()
+void Dog::makeSound() const
 {
     std::cout << "Dogs d'ont meow\n";
 }

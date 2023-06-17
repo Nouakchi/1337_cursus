@@ -3,12 +3,8 @@
 
 Cat::Cat() : Animal()
 {
+    this->type = "Cat";
     std::cout << "Cat Deafault constructor\n";
-}
-
-Cat::Cat( std::string type ) : Animal(type)
-{
-    std::cout << "Params constructor for " + type + "\n";
 }
 
 Cat::Cat( const Cat &copy ) : Animal(copy)
@@ -25,9 +21,10 @@ Cat &Cat::operator = (const Cat &copy )
 {
     this->type = copy.type;
     std::cout << "copy assignement for " + type + "\n";
+    return (*this);
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
     std::cout << "cats d'ont bark\n";
 }

@@ -3,7 +3,7 @@
 
 Animal::Animal()
 {
-    this->type = "unknown";
+    this->type = "";
     std::cout << "Animal Deafault constructor\n";
 }
 
@@ -28,4 +28,15 @@ Animal &Animal::operator = ( const Animal &copy )
 {
     *this = copy;
     std::cout << "Animal copy assignement\n";
+    return (*this);
+}
+
+std::string Animal::getType() const
+{
+    return (this->type);
+}
+
+void Animal::makeSound() const
+{
+
 }
