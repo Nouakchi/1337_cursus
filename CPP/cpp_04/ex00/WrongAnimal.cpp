@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 13:46:10 by onouakch          #+#    #+#             */
+/*   Updated: 2023/06/19 13:46:11 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "WrongAnimal.hpp"
 
@@ -9,14 +21,8 @@ WrongAnimal::WrongAnimal()
 
 WrongAnimal::WrongAnimal( const WrongAnimal &copy )
 {
-    this->type = copy.type;
+    *this = copy;
     std::cout << "WrongAnimal copy Constructor\n";
-}
-
-WrongAnimal::WrongAnimal( std::string type )
-{
-    this->type = type;
-    std::cout << "WrongAnimal Params Constructor\n";
 }
 
 WrongAnimal::~WrongAnimal()
@@ -26,7 +32,7 @@ WrongAnimal::~WrongAnimal()
 
 WrongAnimal &WrongAnimal::operator = ( const WrongAnimal &copy )
 {
-    *this = copy;
+    this->type = copy.type;
     std::cout << "WrongAnimal copy assignement\n";
     return (*this);
 }

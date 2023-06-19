@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 13:45:57 by onouakch          #+#    #+#             */
+/*   Updated: 2023/06/19 13:45:58 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # ifndef __ANIMAL_H__
 # define __ANIMAL_H__
 
@@ -11,8 +23,7 @@ protected:
 public:
     Animal();
     Animal( const Animal  &copy );
-    Animal( std::string type );
-    ~Animal();
+    virtual ~Animal();
 
     Animal &operator = ( const Animal &copy );
 

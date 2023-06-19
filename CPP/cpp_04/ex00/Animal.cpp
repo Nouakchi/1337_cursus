@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 13:45:52 by onouakch          #+#    #+#             */
+/*   Updated: 2023/06/19 13:45:55 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Animal.hpp"
 
@@ -9,14 +20,8 @@ Animal::Animal()
 
 Animal::Animal( const Animal &copy )
 {
-    this->type = copy.type;
+    *this = copy;
     std::cout << "Animal copy Constructor\n";
-}
-
-Animal::Animal( std::string type )
-{
-    this->type = type;
-    std::cout << "Animal Params Constructor\n";
 }
 
 Animal::~Animal()
@@ -26,7 +31,7 @@ Animal::~Animal()
 
 Animal &Animal::operator = ( const Animal &copy )
 {
-    *this = copy;
+    this->type = copy.type;
     std::cout << "Animal copy assignement\n";
     return (*this);
 }
