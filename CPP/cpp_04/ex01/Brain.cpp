@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 13:46:06 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/19 14:50:54 by onouakch         ###   ########.fr       */
+/*   Created: 2023/06/19 13:53:06 by onouakch          #+#    #+#             */
+/*   Updated: 2023/06/19 14:51:04 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Brain.hpp"
 
-# ifndef __DOG_H__
-# define __DOG_H__
-
-#include "Animal.hpp"
-
-class Dog : public Animal
+Brain::Brain()
 {
-public:
-    Dog();
-    Dog( const Dog &copy );
-    ~Dog();
+    std::cout << "Brain is created \n";
+}
 
-    Dog &operator = (const Dog &copy );
+Brain::Brain( const Brain &copy )
+{
+    *this = copy;
+    std::cout << "copy constructor is called\n";
+}
 
-    void makeSound() const;
-};
+Brain &Brain::operator=( const Brain &copy )
+{
+    int i = -1;
+    while (++i < 100)
+        this->ideas[i] = copy.ideas[i];
+    return (*this);
+}
 
-
-# endif
+Brain::~Brain()
+{
+    std::cout << "Brain is destroyed\n";
+}
