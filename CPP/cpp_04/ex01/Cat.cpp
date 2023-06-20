@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:45:59 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/19 18:53:29 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:37:56 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ Cat::~Cat()
 
 Cat &Cat::operator = ( const Animal &copy )
 {
-    this->brain = copy.getBrain();
+    delete this->brain;
+    this->brain = new Brain(*copy.getBrain());
     std::cout << "copy assignement for " + type + "\n";
     return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:46:06 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/19 16:56:31 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:45:24 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
     Dog( const Dog &copy );
     ~Dog();
 
-    Dog &operator = (const Dog &copy );
+    Dog& operator=(const Animal& other);
     
     void makeSound() const;
     Brain *getBrain() const;

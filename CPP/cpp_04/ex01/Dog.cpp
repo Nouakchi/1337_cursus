@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:46:04 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/19 19:01:08 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:37:43 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ Dog::~Dog()
 
 Dog &Dog::operator = ( const Animal &copy )
 {
+    delete this->brain;
     this->brain = new Brain(*copy.getBrain());
     std::cout << "copy assignement for " + type + "\n";
     return (*this);

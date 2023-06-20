@@ -20,28 +20,30 @@ void check()
 
 int main()
 {
-    // atexit(check);
-const Animal* j = new Dog();
-const Animal* i = new Cat();
+    atexit(check);
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
 
-std::cout<<"----------\n\n";
+    std::cout<<"----------\n\n";
 
-j->getBrain()->ideas[0] = "j think => hello world\n";
-i->getBrain()->ideas[0] = "i think => world hello\n";
-std::cout << j->getBrain()->ideas[0] << i->getBrain()->ideas[0];
+    j->getBrain()->ideas[0] = "j think => hello world\n";
+    i->getBrain()->ideas[0] = "i think => world hello\n";
+    std::cout << j->getBrain()->ideas[0] << i->getBrain()->ideas[0];
 
-std::cout<<"----------\n\n";
+    std::cout<<"----------\n\n";
 
-Animal *k = new Dog();
-*(Dog*)k = *j;
-std::cout << k->getBrain()->ideas[0];
-k->getBrain()->ideas[0] = "k pense => Bonjour tout le monde\n";
-std::cout << j->getBrain()->ideas[0] << k->getBrain()->ideas[0];
+    Animal *k = new Dog();
+    *(Dog*)k = *j;
+    std::cout << k->getBrain()->ideas[0];
+    k->getBrain()->ideas[0] = "k pense => Bonjour tout le monde\n";
+    std::cout << j->getBrain()->ideas[0] << k->getBrain()->ideas[0];
 
-std::cout<<"----------\n\n";
-delete j;//should not create a leak
-delete i;
-delete k;
-std::cout<<"----------\n\n";
-return (0);
+    std::cout<<"----------\n\n";
+    
+    delete j;//should not create a leak
+    delete i;
+    delete k;
+    
+    std::cout<<"----------\n\n";
+    return (0);
 }

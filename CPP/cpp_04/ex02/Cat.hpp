@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:46:02 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/19 16:53:52 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:53:45 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
     Cat( const Cat &copy );
     ~Cat();
 
-    Cat &operator = (const Cat &copy );
+    Cat &operator = ( const Animal &copy );
 
     void makeSound() const;
     Brain *getBrain() const;

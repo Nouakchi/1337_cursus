@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:46:04 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/19 16:56:27 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:37:43 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ Dog::~Dog()
     std::cout << "Destructor for " + type + "\n";
 }
 
-Dog &Dog::operator = (const Dog &copy )
+Dog &Dog::operator = ( const Animal &copy )
 {
-    this->type = copy.type;
-    *this->brain = *copy.brain;
+    delete this->brain;
+    this->brain = new Brain(*copy.getBrain());
     std::cout << "copy assignement for " + type + "\n";
     return (*this);
 }

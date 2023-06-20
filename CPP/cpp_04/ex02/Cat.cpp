@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:45:59 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/19 16:53:38 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:37:56 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ Cat::~Cat()
     std::cout << "Destructor for " + type + "\n";
 }
 
-Cat &Cat::operator = (const Cat &copy )
+Cat &Cat::operator = ( const Animal &copy )
 {
-    this->type = copy.type;
-    *this->brain = *copy.brain;
+    delete this->brain;
+    this->brain = new Brain(*copy.getBrain());
     std::cout << "copy assignement for " + type + "\n";
     return (*this);
 }

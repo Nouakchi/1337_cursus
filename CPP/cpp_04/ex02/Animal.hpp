@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:45:57 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/19 16:55:45 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:42:12 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ public:
     Animal();
     Animal( const Animal  &copy );
     virtual ~Animal();
-
-    virtual Animal &operator = ( const Animal &copy );
+    
+    Animal& operator=(const Animal& other);
 
     std::string getType() const;
 

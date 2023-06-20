@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:53:06 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/19 16:43:42 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:51:04 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Brain::Brain()
 Brain::Brain( const Brain &copy )
 {
     *this = copy;
-    std::cout << "Brain copy constructor is called\n";
+    std::cout << "copy constructor is called\n";
 }
 
 Brain &Brain::operator=( const Brain &copy )
@@ -28,7 +28,6 @@ Brain &Brain::operator=( const Brain &copy )
     int i = -1;
     while (++i < 100)
         this->ideas[i] = copy.ideas[i];
-    std::cout << "Brain copy assignement is called\n";
     return (*this);
 }
 
