@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:35:05 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/21 09:55:20 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:57:11 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ std::string const &AMateria::getType() const
 
 void AMateria::use( ICharacter& target)
 {
-    
+    (void)target;
 }
+
+AMateria::~AMateria(){}
