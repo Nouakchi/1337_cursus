@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/20 17:02:36 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/21 11:41:42 by onouakch         ###   ########.fr       */
+/*   Created: 2023/06/21 09:25:35 by onouakch          #+#    #+#             */
+/*   Updated: 2023/06/21 11:28:44 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "MateriaSource.hpp"
 
-Character::Character() : name("unknow") 
+
+MateriaSource::MateriaSource()
 {
     int i = -1;
     while (++i < 4)
         this->materias[i] = NULL;
 }
 
-Character::Character( std::string _name ) : name(_name) 
-{
-    int i = -1;
-    while (++i < 4)
-        this->materias[i] = NULL;
-}
-
-Character::Character( const Character &other ) : name(other.name)
+MateriaSource::MateriaSource( const MateriaSource &other )
 {
     int i = -1;
     while (++i < 4)
@@ -37,13 +31,12 @@ Character::Character( const Character &other ) : name(other.name)
     }
 }
 
-Character &Character::operator= ( const Character &other )
+MateriaSource &MateriaSource::operator= ( const MateriaSource &other )
 {
     if (this != &other)
     {
         int i = -1;
-        
-        this->name = other.name;
+
         while (++i < 4)
         {
             if (this->materias[i])
@@ -58,7 +51,7 @@ Character &Character::operator= ( const Character &other )
     return (*this);
 }
 
-Character::~Character()
+MateriaSource::~MateriaSource()
 {
     int i = -1;
     
@@ -69,35 +62,28 @@ Character::~Character()
     }
 }
 
-std::string const & Character::getName() const {return (this->name); }
-
-void Character::equip( AMateria* m)
+void MateriaSource::learnMateria(AMateria* materia)
 {
     int i = -1;
-    while(++i < 4)
+
+    while (++i < 4)
     {
         if (!this->materias[i])
         {
-            this->materias[i] = m;
+            this->materias[i] = materia;
             break;
         }
     }
 }
 
-void Character::unequip(int idx)
+AMateria* MateriaSource::createMateria(std::string const & type)
 {
-    if (idx >= 0 && idx < 4)
-    {
-        if (this->materias[idx])
-            this->materias[idx] = NULL;
-    }
-}
+    int i = -1;
 
-void Character::use(int idx, ICharacter& target)
-{
-    if (idx >= 0 && idx < 4)
+    while (++i < 4)
     {
-        if (this->materias[idx])
-            this->materias[idx]->use(target);
+        if (this->materias[i]->getType() == type)
+            return (this->materias[i]->clone());
     }
+    return (0);
 }

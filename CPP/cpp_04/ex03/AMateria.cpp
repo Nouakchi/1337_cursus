@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:35:05 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/20 16:16:07 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/21 09:55:20 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 
 AMateria::AMateria()
 {
-    std::cout << "Materia's default contructor\n";
 }
 
 AMateria::AMateria( std::string const & type)
 {
     this->type = type;
-    std::cout << "Materia's Params contructor\n";
 }
 
 AMateria::AMateria( const AMateria &other ) : type(other.type)
 {
     *this = other;
-    std::cout << "Materia's copy constructor\n";
 }
 
 AMateria &AMateria::operator = ( const AMateria &other )
 {
-    this->type = other.type;
-    std::cout << "Materia's copy assignement called\n";
+    if (this != &other)
+        this->type = other.type;
+    return (*this);
 }
 
 std::string const &AMateria::getType() const

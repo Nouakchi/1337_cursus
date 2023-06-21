@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:04:13 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/20 16:53:46 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/21 09:53:59 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
     AMateria();
     AMateria(std::string const &type);
     AMateria(const AMateria &other );
+    ~AMateria();
     
     AMateria &operator = ( const AMateria &other );
     

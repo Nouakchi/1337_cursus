@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:54:06 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/20 17:03:10 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:41:09 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,19 @@ class Character : public ICharacter
 {
 private:
     std::string name;
-    AMateria *materia[4];
+    AMateria *materias[4];
 public:
-    ~Character() {}
+    Character();
+    Character( std::string name );
+    Character( const Character &other );
+    ~Character();
+    
+    Character &operator = ( const Character &other );
+    
     std::string const & getName() const;
     void equip(AMateria* m);
     void unequip(int idx);
-    void use(int idx, Character& target);
+    void use(int idx, ICharacter& target);
 };
 
 # endif
