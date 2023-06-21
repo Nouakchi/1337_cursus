@@ -6,9 +6,12 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 09:25:38 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/21 11:11:32 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:13:11 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# ifndef __MATERIASOURCE_H_
+# define __MATERIASOURCE_H_
 
 #include "AMateria.hpp"
 #include "IMateriaSource.hpp"
@@ -28,4 +31,4 @@ public:
     AMateria* createMateria(std::string const & type);
 };
 
-
+# endif
