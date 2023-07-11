@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:44:15 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/24 15:42:51 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/11 16:02:49 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,20 @@ public:
 
     const std::string &getName() const;
     int getGrade() const;
-
-    std::string GradeTooHighException();
-    std::string GradeTooLowException();
     
     void increment();
     void decrement();
+
+    void signedForm( const std::string name ) const;
+    
+    class GradeTooLowException : public std::exception{
+        public :
+            const char* what() const throw();
+    };
+    class GradeTooHighException : public std::exception{
+        public :
+            const char* what() const throw();
+    };
 };
 
 std::ostream &operator << ( std::ostream &os , const Bureaucrat &b );
