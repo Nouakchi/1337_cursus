@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:46:35 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/11 16:03:54 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:22:59 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ public:
 
     const std::string &getName() const;
     bool getIsSigned() const;
-    const int getSigneGrade() const;
-    const int getExecuteGrade() const;
+    int getSigneGrade() const;
+    int getExecuteGrade() const;
 
     void beSigned( const Bureaucrat &b );
 
-    class GradeTooHighException : std::exception{
+    class GradeTooHighException : public std::exception{
         public:
             const char* what() const throw();
     };
-    class GradeTooLowException : std::exception{
+    class GradeTooLowException : public std::exception{
         public:
             const char* what() const throw();
     };

@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:47:19 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/11 16:08:33 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:40:02 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ Form::~Form() {}
 Form &Form::operator = ( const Form &other )
 {
     this->is_signed = other.is_signed;
+    return (*this);
 }
 
 const std::string &Form::getName() const { return this->name; }
 bool Form::getIsSigned() const { return this->is_signed; }
-const int Form::getSigneGrade() const { return this->signed_grade; }
-const int Form::getExecuteGrade() const { return this->execute_grade; }
+int Form::getSigneGrade() const { return this->signed_grade; }
+int Form::getExecuteGrade() const { return this->execute_grade; }
 
 void Form::beSigned( const Bureaucrat &b )
 {
@@ -58,8 +59,8 @@ const char* Form::GradeTooHighException::what() const throw()
     return "Grade too high.\n";
 }
 
-std::ostream &operator<< ( std::ostream &os, Form &b )
+std::ostream &operator<< ( std::ostream &os, const Form &b )
 {
-    std::cout <<  b.getName() << "signed = " << b.getIsSigned() << " signed grade = " + b.getSigneGrade() << " execute grade = " + b.getExecuteGrade() <<  "\n";
+    std::cout <<  b.getName() << " signed = " << b.getIsSigned() << " signed grade = " << b.getSigneGrade() << " execute grade = " << b.getExecuteGrade() <<  "\n";
     return (os);
 }

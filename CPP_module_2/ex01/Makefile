@@ -1,8 +1,8 @@
 CPP                     = c++
 CPPFLAGS                = -Wall -Wextra -Werror -std=c++98
 NAME                    = run
-OBJS                    = main.o Bureaucrat.o 
-INCLUDES                = Bureaucrat.hpp
+OBJS                    = main.o Bureaucrat.o  Form.o
+INCLUDES                = Bureaucrat.hpp Form.hpp
 
 all:    $(NAME)
 

@@ -6,35 +6,37 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:42:20 by onouakch          #+#    #+#             */
-/*   Updated: 2023/06/24 15:48:33 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:30:28 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-
+#include "Form.hpp"
+ 
 int main()
 {
     try
     {
-        Bureaucrat b1;
-        Bureaucrat b2("cor" , 1);
-        Bureaucrat b3(b2);
-        Bureaucrat b4 = b3;
+        Bureaucrat bb("bur", 2);
+        
+        Form b1;
+        Form b2("cor" , 0, 150,1);
+        Form b3(b2);
+        Form b4 = b3;
         
         std::cout << b1;
         std::cout << b2;
         std::cout << b3;
         std::cout << b4;
+
+        b2.beSigned(bb);
+
+        std::cout << b2;
         
-        b1.decrement();
-        b2.increment();
-        b3.decrement();
-        std::cout << b3.getGrade() << std::endl;
         
     }
-    catch(std::string excp)
+    catch( const std::exception& e )
     {
-        std::cout << excp;
+        std::cout << e.what();
     }
     
     return (0);
