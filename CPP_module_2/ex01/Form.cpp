@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:47:19 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/12 14:40:02 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/13 12:43:53 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,9 @@ int Form::getExecuteGrade() const { return this->execute_grade; }
 
 void Form::beSigned( const Bureaucrat &b )
 {
-    b.signedForm(this->getName());
-    if (b.getGrade() > 150)
+    b.signedForm(this->getName(), this->signed_grade);
+    if (b.getGrade() < this->signed_grade)
         throw Form::GradeTooLowException();
-    else if (b.getGrade() < 1)
-        throw Form::GradeTooHighException();
     else
         this->is_signed = 1;
 }   

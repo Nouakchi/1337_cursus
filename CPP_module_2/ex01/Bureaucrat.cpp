@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:43:04 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/12 14:39:34 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/13 12:44:34 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,10 @@ void Bureaucrat::setGrade( int grade )
     this->grade = grade;
 }
 
-void Bureaucrat::signedForm( const std::string name ) const
+void Bureaucrat::signedForm( const std::string name , int const signed_grade ) const
 {
-    if (this->grade > 150)
-        std::cout <<  "Bureaucrat " + this->name + " couldn't sign " + name + " because the grade it's too low\n";
-    else if (this->grade < 1)
-        std::cout <<  "Bureaucrat " + this->name + " couldn't sign " + name + " because the grade it's too high\n";
+    if (this->grade < signed_grade )
+        std::cout <<  "Bureaucrat " + this->name + " couldn't sign " + name + " because the ";
     else
         std::cout << "Bureaucrat " + this->name + " signed " + name + " \n";
 }

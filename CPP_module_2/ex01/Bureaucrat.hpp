@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:44:15 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/12 14:39:44 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/13 12:42:43 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ public:
     void increment();
     void decrement();
 
-    void signedForm( const std::string name ) const;
+    void signedForm( const std::string name , int const signed_grade ) const;
     
     class GradeTooLowException : public std::exception{
         public :
