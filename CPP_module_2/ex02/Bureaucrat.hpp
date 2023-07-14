@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:44:15 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/12 14:39:44 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:52:33 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define __BUREAUCRAT_H__
 
 #include <iostream>
+#include "AForm.hpp"
 
+class AForm;
 class Bureaucrat
 {
 private:
@@ -37,7 +39,8 @@ public:
     void increment();
     void decrement();
 
-    void signedForm( const std::string name ) const;
+    void signForm( AForm& form );
+    void executeForm(AForm const & form);
     
     class GradeTooLowException : public std::exception{
         public :

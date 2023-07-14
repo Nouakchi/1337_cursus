@@ -6,7 +6,7 @@
 /*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:47:19 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/13 12:43:53 by othman           ###   ########.fr       */
+/*   Updated: 2023/07/14 14:30:21 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 Form::Form() : name("unknown") , is_signed(0) , signed_grade(1) , execute_grade(1) {}
 
-Form::Form( const std::string name, bool is_signed , const int s_grade , const int e_grade ) :
-                name(name) , is_signed(is_signed) , signed_grade(s_grade) , execute_grade(e_grade)
+Form::Form( const std::string name , const int s_grade , const int e_grade ) :
+                name(name) , is_signed(0) , signed_grade(s_grade) , execute_grade(e_grade)
 {
     if (signed_grade < 1 || execute_grade < 1)
         throw Form::GradeTooHighException();
@@ -39,10 +39,11 @@ bool Form::getIsSigned() const { return this->is_signed; }
 int Form::getSigneGrade() const { return this->signed_grade; }
 int Form::getExecuteGrade() const { return this->execute_grade; }
 
-void Form::beSigned( const Bureaucrat &b )
+void Form::setSigned(bool sign) { this->is_signed = sign;}
+
+void Form::beSigned( Bureaucrat &b )
 {
-    b.signedForm(this->getName(), this->signed_grade);
-    if (b.getGrade() < this->signed_grade)
+    if (this->signed_grade > b.getGrade())
         throw Form::GradeTooLowException();
     else
         this->is_signed = 1;

@@ -6,7 +6,7 @@
 /*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:43:04 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/13 12:44:34 by othman           ###   ########.fr       */
+/*   Updated: 2023/07/14 14:31:03 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,13 @@ void Bureaucrat::setGrade( int grade )
     this->grade = grade;
 }
 
-void Bureaucrat::signedForm( const std::string name , int const signed_grade ) const
+void Bureaucrat::signForm( Form& form )
 {
-    if (this->grade < signed_grade )
-        std::cout <<  "Bureaucrat " + this->name + " couldn't sign " + name + " because the ";
-    else
-        std::cout << "Bureaucrat " + this->name + " signed " + name + " \n";
+        if (this->grade < form.getSigneGrade() )
+            std::cout <<  "Bureaucrat " + this->name + " couldn't sign " + form.getName() + " because the ";
+        else
+            std::cout << "Bureaucrat " + this->name + " signed " + form.getName() + " \n";
+        form.beSigned(*this);
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()

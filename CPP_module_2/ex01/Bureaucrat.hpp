@@ -6,7 +6,7 @@
 /*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:44:15 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/13 12:42:43 by othman           ###   ########.fr       */
+/*   Updated: 2023/07/14 12:02:29 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define __BUREAUCRAT_H__
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -37,7 +40,7 @@ public:
     void increment();
     void decrement();
 
-    void signedForm( const std::string name , int const signed_grade ) const;
+    void signForm( Form& form );
     
     class GradeTooLowException : public std::exception{
         public :

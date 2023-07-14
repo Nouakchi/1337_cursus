@@ -3,24 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 14:55:28 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/12 14:56:27 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/14 15:38:23 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef __SHRUBBERY_CREATION_FORM__
 # define __SHRUBBERY_CREATION_FORM__
 
-class ShrubberyCreationForm
+#include "AForm.hpp"
+
+class ShrubberyCreationForm : public AForm
 {
 private:
-    /* data */
+    std::string target;
 public:
-    ShrubberyCreationForm(/* args */);
+    ShrubberyCreationForm();
+    ShrubberyCreationForm(const ShrubberyCreationForm& copy);
+    ShrubberyCreationForm( std::string target );
+    
+    ShrubberyCreationForm &operator = (const ShrubberyCreationForm& other);
+    
     ~ShrubberyCreationForm();
+
+    void execute( Bureaucrat const & executor) const;
 };
+
 
 
 # endif

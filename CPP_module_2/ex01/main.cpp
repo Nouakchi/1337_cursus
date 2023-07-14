@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:42:20 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/12 14:30:28 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/14 14:25:09 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
         Bureaucrat bb("bur", 2);
         
         Form b1;
-        Form b2("cor" , 0, 150,1);
+        Form b2("cor" , 150,1);
         Form b3(b2);
         Form b4 = b3;
         
@@ -28,7 +28,8 @@ int main()
         std::cout << b3;
         std::cout << b4;
 
-        b2.beSigned(bb);
+
+        bb.signForm(b2);
 
         std::cout << b2;
         
