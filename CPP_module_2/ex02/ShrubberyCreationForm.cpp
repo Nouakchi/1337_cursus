@@ -6,7 +6,7 @@
 /*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 14:55:11 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/14 18:03:50 by othman           ###   ########.fr       */
+/*   Updated: 2023/07/14 18:53:58 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,12 @@ void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
         "_- -   | | _- _  \n" 
         "  _ -  | |   -_  \n" 
         "      // \\      \n";
-        std::string filename = this->target + "_shrubbery";
+        std::string file = this->target + "_shrubbery";
+        char filename[file.length() + 1];
+        long unsigned int i = -1;
+        while(++i <= file.length())
+            filename[i] = file[i];
+        filename[i] = '\0';
         std::ofstream myfile (filename);
         if (myfile.is_open())
             std::cout << ascii_tree;
