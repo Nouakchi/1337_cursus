@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:42:20 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/15 11:50:19 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/15 13:54:45 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
  
 int main()
 {
-    std::srand(time(nullptr));
     try
     {
+        std::srand(time(nullptr));
+
         Bureaucrat bb("bur", 2);
         
         PresidentialPardonForm ppf("Home");
