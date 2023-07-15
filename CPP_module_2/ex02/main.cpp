@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:42:20 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/15 13:54:45 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/15 15:46:47 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ int main()
         bb.signForm(srf);
         
         bb.executeForm(srf);
-        
-        
         
     }
     catch( const std::exception& e )

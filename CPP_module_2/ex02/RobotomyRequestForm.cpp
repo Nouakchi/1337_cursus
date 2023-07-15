@@ -6,14 +6,15 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 14:54:14 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/15 13:54:36 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/15 15:49:59 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("Default" , 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() 
+: AForm("Default" , 72, 45)
 {
     this->target = "unknown";
 }
@@ -51,7 +52,9 @@ void RobotomyRequestForm::execute( Bureaucrat const & executor) const
         throw AForm::NotSignedException();
     else if (executor.getGrade() > this->getExecuteGrade())
         throw AForm::GradeTooLowException();
+    
     std::cout << "some drilling noises\n";
+
     int check = std::rand() % 2;
     if (check)
         std::cout << this->target << " has been robotomized\n";

@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 10:57:05 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/15 11:33:01 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/15 15:49:01 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ class Bureaucrat;
 
 AForm::AForm() : name("unknown") , is_signed(false) , signed_grade(1) , execute_grade(1) {}
 
-AForm::AForm( const std::string name , const int s_grade , const int e_grade ) :
-                name(name) , is_signed(false) , signed_grade(s_grade) , execute_grade(e_grade)
+AForm::AForm( const std::string name , const int s_grade , const int e_grade ) 
+: name(name) , is_signed(false) , signed_grade(s_grade) , execute_grade(e_grade)
 {
     if (signed_grade < 1 || execute_grade < 1)
         throw AForm::GradeTooHighException();
@@ -26,7 +26,8 @@ AForm::AForm( const std::string name , const int s_grade , const int e_grade ) :
         throw AForm::GradeTooLowException();
 }
 
-AForm::AForm( const AForm &other ) : name(other.name) , is_signed(other.is_signed) , signed_grade(other.signed_grade) , execute_grade(other.execute_grade) {}
+AForm::AForm( const AForm &other ) 
+: name(other.name) , is_signed(other.is_signed) , signed_grade(other.signed_grade) , execute_grade(other.execute_grade) {}
 
 AForm::~AForm() {}
 

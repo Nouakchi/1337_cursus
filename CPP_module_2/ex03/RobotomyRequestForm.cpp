@@ -6,14 +6,15 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 14:54:14 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/15 13:54:36 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/15 15:48:11 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("Default" , 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() 
+: AForm("Default" , 72, 45)
 {
     this->target = "unknown";
 }
