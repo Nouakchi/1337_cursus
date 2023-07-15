@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 14:55:11 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/15 10:43:57 by onouakch         ###   ########.fr       */
+/*   Created: 2023/07/15 10:56:29 by onouakch          #+#    #+#             */
+/*   Updated: 2023/07/15 11:48:31 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,10 @@ void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
         filename[i] = '\0';
         std::ofstream myfile (filename);
         if (myfile.is_open())
-            std::cout << ascii_tree;
+        {
+            myfile << ascii_tree;
+            myfile.close();
+        }
         else
             std::cout << "enable to open file\n";
     }

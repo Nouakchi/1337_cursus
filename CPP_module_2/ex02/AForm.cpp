@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAForm.cpp                                          :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 14:52:40 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/13 12:52:11 by othman           ###   ########.fr       */
+/*   Created: 2023/07/15 10:57:05 by onouakch          #+#    #+#             */
+/*   Updated: 2023/07/15 11:33:01 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
 
+#include "AForm.hpp"
+ 
 class Bureaucrat;
 
 AForm::AForm() : name("unknown") , is_signed(false) , signed_grade(1) , execute_grade(1) {}
@@ -42,7 +43,7 @@ int AForm::getExecuteGrade() const { return this->execute_grade; }
 
 void AForm::beSigned( Bureaucrat &b )
 {
-    if (this->signed_grade > b.getGrade())
+    if (this->signed_grade < b.getGrade())
         throw AForm::GradeTooLowException();
     else
         this->is_signed = 1;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 14:54:24 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/14 17:30:44 by othman           ###   ########.fr       */
+/*   Updated: 2023/07/15 11:44:21 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
     
     void execute( Bureaucrat const & executor) const;
 
-    class FailureException : std::exception
+    class FailureException : public std::exception
     {
         public:
             const char* what() const throw();

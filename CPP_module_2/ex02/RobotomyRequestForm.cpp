@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 14:54:14 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/14 18:02:07 by othman           ###   ########.fr       */
+/*   Updated: 2023/07/15 11:36:52 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void RobotomyRequestForm::execute( Bureaucrat const & executor) const
     else if (executor.getGrade() > this->getExecuteGrade())
         throw AForm::GradeTooLowException();
     std::cout << "some drilling noises\n";
-    if (std::rand() % 2)
+    int check = std::rand() % 2;
+    if (check)
         std::cout << this->target << " has been robotomized\n";
     else
         throw RobotomyRequestForm::FailureException();

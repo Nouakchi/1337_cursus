@@ -3,37 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:42:20 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/14 17:57:21 by othman           ###   ########.fr       */
+/*   Updated: 2023/07/15 11:50:19 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "AForm.hpp"
-
-#include <iostream>
+#include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include <ctime>
  
 int main()
 {
+    std::srand(time(nullptr));
     try
     {
-        // Bureaucrat bb("bur", 2);
+        Bureaucrat bb("bur", 2);
         
-        // Form b1;
-        // Form b2("cor" , 0, 150,1);
-        // Form b3(b2);
-        // Form b4 = b3;
+        PresidentialPardonForm ppf("Home");
+        RobotomyRequestForm rrf("house");
+        ShrubberyCreationForm srf("forest");
         
-        // std::cout << b1;
-        // std::cout << b2;
-        // std::cout << b3;
-        // std::cout << b4;
+        bb.signForm(ppf);
 
-        // b2.beSigned(bb);
+        bb.executeForm(ppf);
+        
+        bb.signForm(rrf);
 
-        // std::cout << b2;
+        bb.executeForm(rrf);
 
+        bb.signForm(srf);
+        
+        bb.executeForm(srf);
+        
+        
         
     }
     catch( const std::exception& e )
