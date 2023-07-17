@@ -1,6 +1,6 @@
 
 # ifndef __SCALARCONVERTER_H__
-# define __SCALARCONVERTER_h__
+# define __SCALARCONVERTER_H__
 
 # include <iostream>
 
