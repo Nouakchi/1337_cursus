@@ -4,11 +4,13 @@
 
 # include <iostream>
 # include <exception>
+# include <iomanip>
+# include <limits.h>
 
 class ScalarConverter
 {
 public:
-    ScalarConverter(/* args */);
+    ScalarConverter();
     ScalarConverter( const ScalarConverter& copy );
     ~ScalarConverter();
 
@@ -21,16 +23,20 @@ public:
     };
 
     static void convert( char * );
+
     static bool isInt( char * );
     static bool isDouble( char * );
     static bool isFloat( char * );
     static bool isLimit( char * );
+
     static void limitToFloat( char * );
     static void limitToDouble( char * );
-    
+
+    static void printChar( double );
+    static void printInt( double );
+    static void printDouble( double );
+    static void printFloat( double );
+
 };
-
-
-
 
 # endif

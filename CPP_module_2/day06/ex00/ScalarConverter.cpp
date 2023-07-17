@@ -92,28 +92,62 @@ void ScalarConverter::limitToFloat( char *input )
     std::cout << "\n";
 }
 
-void ScalarConverter::convert( char *input )
+void ScalarConverter::printChar( double number )
 {
-    if (ScalarConverter::isFloat(input) || ScalarConverter::isDouble(input)
-                                            || ScalarConverter::isInt(input))
-    {
-        double number = std::atof(input);
-        std::cout << "char: " ;
-        if (number > 31 && number < 127)
-            std::cout << "'" << static_cast<char>(number) << "'\n";
-        else if ((number >= 0 && number <= 31) || number == 127)
-            std::cout << "Non displayable\n";
-        else
-            std::cout << "impossible\n";
+    std::cout << "char: " ;
+    if (number > 31 && number < 127)
+        std::cout << "'" << static_cast<char>(number) << "'\n";
+    else if ((number >= 0 && number <= 31) || number == 127)
+        std::cout << "Non displayable\n";
+    else
+        std::cout << "impossible\n";
+}
+
+void ScalarConverter::printInt( double number )
+{
+    if (number <= std::numeric_limits<int>::max() && number >= std::numeric_limits<int>::lowest())
         std::cout << "int: " << static_cast<int>(number) << "\n";
-        std::cout << "float: " << static_cast<float>(number);
+    else
+        std::cout << "int: impossible\n";
+}
+
+void ScalarConverter::printFloat( double number )
+{
+    if (number <= std::numeric_limits<float>::max() && number >= std::numeric_limits<float>::lowest())
+    {
+        std::cout << "float: " << std::setprecision(7) << static_cast<float>(number);
         if (static_cast<float>(number) == (int)number)
             std::cout << ".0";
         std::cout << "f\n";
-        std::cout << "double: " << static_cast<double>(number);
+    }
+    else
+        std::cout << "float: impossible\n";
+}
+
+void ScalarConverter::printDouble( double number )
+{
+    if (number <= std::numeric_limits<double>::max() && number >= std::numeric_limits<double>::lowest())
+    {
+        std::cout << "double: " << std::setprecision(15) << static_cast<double>(number);
         if (static_cast<double>(number) == (int)number)
             std::cout << ".0";
         std::cout << "\n";
+    }
+    else
+        std::cout << "double: impossible\n";
+}
+
+void ScalarConverter::convert( char *input )
+{
+    //cehck this test ./convert -1 !!
+    if (ScalarConverter::isFloat(input) || ScalarConverter::isDouble(input)
+                                        || ScalarConverter::isInt(input))
+    {
+        double number = std::atof(input);
+        ScalarConverter::printChar( number );
+        ScalarConverter::printInt( number );
+        ScalarConverter::printFloat( number );
+        ScalarConverter::printDouble( number );
     }
     else if (ScalarConverter::isLimit(input))
     {
