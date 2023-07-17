@@ -5,7 +5,7 @@
 # include <iostream>
 # include <exception>
 # include <iomanip>
-# include <limits.h>
+# include <limits>
 
 class ScalarConverter
 {

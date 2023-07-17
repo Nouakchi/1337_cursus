@@ -28,6 +28,8 @@ const char* ScalarConverter::BadArguments::what() const throw()
 bool ScalarConverter::isInt( char *input )
 {
     int i = -1;
+    if (input[0] == '-' || input[0] == '+')
+        i++;
     while (input[++i])
         if (!std::isdigit(input[i]))
             return (false);
@@ -38,6 +40,8 @@ bool ScalarConverter::isDouble( char *input )
 {
     int i = -1;
     int checked = 0;
+    if (input[0] == '-' || input[0] == '+')
+        i++;
     while(input[++i])
     {
         if (input[i] == '.' && !checked)
@@ -52,14 +56,14 @@ bool ScalarConverter::isDouble( char *input )
 
 bool ScalarConverter::isFloat( char *input )
 {
-    int i = -1;
-    while (input[++i])
-        ;
+    int i = std::strlen(input);
     if (input[i - 1] != 'f' && input[i - 1] != 'F')
         return (false);
     char buff[i];
     buff[i - 1] = '\0';
     int j = -1;
+    if (input[0] == '-' || input[0] == '+')
+        j++;
     while (++j < i - 1)
         buff[j] = input[j];
     if (!ScalarConverter::isDouble(buff))
