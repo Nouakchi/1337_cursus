@@ -3,11 +3,10 @@
 # define __SCALARCONVERTER_H__
 
 # include <iostream>
+# include <exception>
 
 class ScalarConverter
 {
-private:
-    /* data */
 public:
     ScalarConverter(/* args */);
     ScalarConverter( const ScalarConverter& copy );
@@ -15,10 +14,20 @@ public:
 
     ScalarConverter& operator= ( const ScalarConverter& other );
 
+    class BadArguments : public std::exception
+    {
+        public:
+            const char* what() const throw();
+    };
+
     static void convert( char * );
-    static bool isInt( char *);
-    static bool isDouble( char *);
-    static bool isFloat( char *);
+    static bool isInt( char * );
+    static bool isDouble( char * );
+    static bool isFloat( char * );
+    static bool isLimit( char * );
+    static void limitToFloat( char * );
+    static void limitToDouble( char * );
+    
 };
 
 

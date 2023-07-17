@@ -1,6 +1,6 @@
 CPP                     = c++
 CPPFLAGS                = -Wall -Wextra -Werror -std=c++98
-NAME                    = run
+NAME                    = convert
 OBJS                    = main.o ScalarConverter.o
 INCLUDES                = ScalarConverter.hpp
 
