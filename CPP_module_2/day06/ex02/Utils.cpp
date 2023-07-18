@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 15:43:21 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/17 17:15:29 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/18 09:19:42 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,46 +57,47 @@ void Utils::identify( Base *ptr )
     else
         std::cout << "??\n";
 }
-
+#include <sstream>
 void Utils::identify( Base &ref )
 {
-    if (&ref == nullptr)
+    std::ostringstream  check_ref;
+    
+    check_ref << &ref;
+    if (check_ref.str() != "0x0")
     {
-        std::cout << "??\n";
-        return ;
-    }
-    try
-    {
-        A &pa = dynamic_cast<A&> (ref);
-        std::cout << "A\n";
-        (void)pa;
-        return ;
-    }
-    catch(const std::exception& e)
-    {
-        (void)e;
-    }
-    try
-    {
-        B &pb = dynamic_cast<B&> (ref);
-        std::cout << "B\n";
-        (void)pb;
-        return ;
-    }
-    catch(const std::exception& e)
-    {
-        (void)e;
-    }
-    try
-    {
-        C &pc = dynamic_cast<C&> (ref);
-        std::cout << "C\n";
-        (void)pc;
-        return ;
-    }
-    catch(const std::exception& e)
-    {
-        (void)e;
+        try
+        {
+            A &pa = dynamic_cast<A&> (ref);
+            std::cout << "A\n";
+            (void)pa;
+            return ;
+        }
+        catch(const std::exception& e)
+        {
+            (void)e;
+        }
+        try
+        {
+            B &pb = dynamic_cast<B&> (ref);
+            std::cout << "B\n";
+            (void)pb;
+            return ;
+        }
+        catch(const std::exception& e)
+        {
+            (void)e;
+        }
+        try
+        {
+            C &pc = dynamic_cast<C&> (ref);
+            std::cout << "C\n";
+            (void)pc;
+            return ;
+        }
+        catch(const std::exception& e)
+        {
+            (void)e;
+        }
     }
     std::cout << "??\n";
 }

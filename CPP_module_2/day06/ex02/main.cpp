@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 13:49:01 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/17 17:14:47 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/18 09:09:40 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
     
     //-----------------------------
 
-    Base *p = nullptr;
+    Base *p = NULL;
     Base &r = *p;
     
     Utils::identify(p);
@@ -32,8 +32,8 @@ int main()
     
     //-----------------------------
     
-    Utils::identify(nullptr);
-    Utils::identify(nullptr);
+    Utils::identify(NULL);
+    Utils::identify(NULL);
     
     //-----------------------------
     
