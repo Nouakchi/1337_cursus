@@ -6,41 +6,38 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:13:41 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/21 17:04:36 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/22 22:29:06 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "EasyFind.hpp"
-# include <vector>
+# include "Span.hpp"
+# include <list>
 
 int main()
 {
-
     try
     {
-        std::vector<int> numbers;
+        std::srand(time(0));
+        Span sp = Span(1000);
         
-        numbers.push_back(1);
-        numbers.push_back(-3);
-        numbers.push_back(3);
-        numbers.push_back(4);
+        // sp.addNumber(6);
+        // sp.addNumber(3);
+        // sp.addNumber(17);
+        // sp.addNumber(9);
+        // sp.addNumber(11);
+        // sp.addNumber(11);
         
-        std::cout << EasyFind::easyfind(numbers, 4) << "\n";
+        sp.addManyNumbers();
+        sp.printList();
         
-        std::vector<char> word;
+        std::cout << sp.shortestSpan() << std::endl;
+        std::cout << sp.longestSpan() << std::endl;
         
-        word.push_back('a');
-        word.push_back('b');
-        word.push_back('c');
-        word.push_back('d');
-        
-        std::cout << (char)EasyFind::easyfind(word, 'a') << "\n";
-        
-        std::cout << (char)EasyFind::easyfind(word, 'D') << "\n";
     }
-    catch (const std::exception& e)
+    catch(const std::exception& e)
     {
-        std::cout << e.what();
+        std::cerr << e.what() << '\n';
     }
+    
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:42:20 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/15 15:46:47 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/22 02:25:14 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
 {
     try
     {
-        std::srand(time(nullptr));
+        std::srand(time(0));
 
         Bureaucrat bb("bur", 2);
         

@@ -6,13 +6,13 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 10:47:14 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/18 10:47:21 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/07/22 01:36:37 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Iter.hpp"
 
-Iter::Iter(/* args */)
+Iter::Iter()
 {
 }
 
