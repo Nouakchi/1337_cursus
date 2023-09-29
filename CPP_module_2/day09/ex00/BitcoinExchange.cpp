@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 02:30:02 by onouakch          #+#    #+#             */
-/*   Updated: 2023/09/29 11:55:56 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:07:32 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,19 @@ void    BitcoinExchange::setData( std::string path )
         getline(data, line);
         while (getline(data, line))
         {
-            this->data.insert(
-                std::pair<time_t,double>(
-                    parseDateTime(
-                        (const char*)strtok((char*)line.c_str(), ","),
+            // this->data.insert(
+            //     std::pair<time_t,double>(
+            //         parseDateTime(
+            //             (const char*)strtok((char*)line.c_str(), ","),
+            //             "%Y-%m-%d %H:%M:%S"
+            //         ),
+            //         atof(strtok(NULL, ","))  
+            //     )
+            // );
+            std::cout << parseDateTime(
+                        (const char*)strcat(strtok((char*)line.c_str(), ","), " 00:00:00"),
                         "%Y-%m-%d %H:%M:%S"
-                    ),
-                    atof(strtok(NULL, ","))  
-                )
-            );
+                    ) << std::endl;
         }
         data.close();
     }

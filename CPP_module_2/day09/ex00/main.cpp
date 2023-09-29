@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 02:29:57 by onouakch          #+#    #+#             */
-/*   Updated: 2023/09/29 11:57:16 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/09/29 12:43:01 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int main(int ac, char *av[])
     // }
     BitcoinExchange btc;
     btc.setData("data.csv");
-    std::map<time_t,double>::iterator it;
-    for (it=btc.data.begin(); it!=btc.data.end(); ++it)
-        std::cout << it->first << " => " << it->second << '\n';
+    // std::map<time_t,double>::iterator it;
+    // for (it=btc.data.begin(); it!=btc.data.end(); ++it)
+    //     std::cout << it->first << " => " << it->second << '\n';
     // if (!BitcoinExchange::parseLine("2023-02-28 | +8"))
     //     return (0);
     return (0);

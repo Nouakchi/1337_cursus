@@ -1,49 +1,44 @@
-#include <iostream>
-#include <sstream>
+// C++ Program to implement Date and Time parsing using
+// <ctime>
 #include <ctime>
+#include <iostream>
+using namespace std;
 
-int main() {
-    std::string dateString = "2023-1-20";
-    std::tm date1 = {};  // Initialize to all zeros
+// function to parse a date or time string.
+time_t parseDateTime(const char* datetimeString, const char* format)
+{
+	struct tm tmStruct;
+	strptime(datetimeString, format, &tmStruct);
+	return mktime(&tmStruct);
+}
 
-    std::istringstream ss(dateString);
-    char delimiter;
+// Function to format a time_t value into a date or time string.
+// string DateTime(time_t time, const char* format)
+// {
+// 	char buffer[90];
+// 	struct tm* timeinfo = localtime(&time);
+// 	strftime(buffer, sizeof(buffer), format, timeinfo);
+// 	return buffer;
+// }
+int main()
+{
+    std::string line = "2023-06-17,0";
+	char* datetimeString = (char *)line.c_str();
+	const char* format = "%Y-%m-%d %H:%M:%S";
+	time_t parsedTime = parseDateTime((const char*)datetimeString, format);
 
-    // Parse year, month, day components
-    ss >> date1.tm_year >> delimiter
-       >> date1.tm_mon >> delimiter
-       >> date1.tm_mday;
-
-    if (ss.fail() )
-        return (std::cout << "Date parsing failed." << std::endl, 1);
-
-    date1.tm_year -= 1900;  // Years since 1900
-    // date1.tm_mon -= 1;      // Months are 0-based
-    // std::tm date1 = {0, 0, 0,
-    //                  19, 1, 1900 - 1900};
-    std::tm date2 = {0, 0, 0,
-                     19, 1, 2023 - 1900};
-
-    std::time_t time1 = std::mktime(&date1);
-    std::time_t time2 = std::mktime(&date2);
-
-    double difference =  std::difftime(time2, time1);
-
-    if (difference > 0) {
-        std::cout << "Date 2 is later than Date 1." << std::endl;
-    } else if (difference < 0) {
-        std::cout << "Date 1 is later than Date 2." << std::endl;
-    } else {
-        std::cout << "Date 1 and Date 2 are the same." << std::endl;
-    }
-
-    // Adjust year and month values as per the tm structure
-
-    // Convert the std::tm structure to a time_t value
-    // std::time_t date = std::mktime(&timeInfo);
-
-    // Print the converted time_t value
-    // std::cout << "Time in seconds since epoch: " << timeInfo.tm_mon << std::endl;
-
-    return 0;
+    // parseDateTime(
+    //                     (const char*)strtok((char*)line.append(" 00:00:00").c_str(), ","),
+    //                     "%Y-%m-%d %H:%M:%S"
+    //                 )
+    char *date = strtok((char*)datetimeString, ",");
+    std::cout << date << std::endl;
+    std::cout << parseDateTime(
+                        (const char*)strcat(date, " 12:36:51"),
+                        "%Y-%m-%d %H:%M:%S"
+                    ) << std::endl;
+	// string formattedTime = DateTime(parsedTime, format);
+	// cout << "Parsed Time--> " << parsedTime << endl;
+	// cout << "Formatted Time--> " << formattedTime << endl;
+	return 0;
 }
