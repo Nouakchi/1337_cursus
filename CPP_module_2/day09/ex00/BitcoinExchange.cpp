@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 02:30:02 by onouakch          #+#    #+#             */
-/*   Updated: 2023/09/29 13:07:32 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/10/02 10:33:00 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ BitcoinExchange &BitcoinExchange::operator= ( const BitcoinExchange& other )
     return (*this);
 }
 
-time_t parseDateTime(const char* datetimeString, const char* format)
+time_t parseDateTime_1(const char* datetimeString, const char* format)
 {
     struct tm tmStruct;
     strptime(datetimeString, format, &tmStruct);
@@ -36,8 +36,10 @@ time_t parseDateTime(const char* datetimeString, const char* format)
 
 void    BitcoinExchange::setData( std::string path )
 {
-    std::ifstream data;
-    std::string line;
+    std::ifstream   data;
+    std::string     line;
+    char      *key;
+    double          value;
 
     data.open(path);
     if (data.is_open())
@@ -45,27 +47,45 @@ void    BitcoinExchange::setData( std::string path )
         getline(data, line);
         while (getline(data, line))
         {
-            // this->data.insert(
-            //     std::pair<time_t,double>(
-            //         parseDateTime(
-            //             (const char*)strtok((char*)line.c_str(), ","),
-            //             "%Y-%m-%d %H:%M:%S"
-            //         ),
-            //         atof(strtok(NULL, ","))  
-            //     )
-            // );
-            std::cout << parseDateTime(
-                        (const char*)strcat(strtok((char*)line.c_str(), ","), " 00:00:00"),
+            key = strtok((char *)line.c_str(), ",");
+            value = atof((const char*)strtok(NULL, ","));
+            this->data.insert(
+                std::pair<time_t,double>(
+                    parseDateTime_1(
+                        (const char*)strcat(key, " 00:00:00"),
                         "%Y-%m-%d %H:%M:%S"
-                    ) << std::endl;
+                        ),
+                    value
+                )
+            );
         }
         data.close();
     }
 }
 
-std::map<time_t, double> BitcoinExchange::getDate()
+std::map<time_t, double>    BitcoinExchange::getData( )
 {
     return (this->data);
+}
+
+void BitcoinExchange::getDateValue( time_t date, double value )
+{
+    std::map<time_t, double>::iterator  it;
+    double                              tmp;
+    
+    tmp = -1;
+    (void)value;
+    for (it=this->data.begin();it!=this->data.end();++it)
+    {
+        if (date == it->first)
+        {
+            std::cout << it->second * value << std::endl;
+            return ;
+        }
+        if (date > it->first)
+            tmp = it->second;
+    }
+    std::cout << value * tmp << std::endl;
 }
 
 int isNumeric( char *str )
@@ -80,6 +100,8 @@ int isNumeric( char *str )
     }
     return (atoi(str));
 }
+
+
 
 bool isDate( int year, int month, int day)
 {
@@ -152,6 +174,6 @@ bool BitcoinExchange::parseLine( std::string line )
         return (0);
     if (btc_value > 1000)
         return (std::cout << "Error: too large a number.\n", 0);
-    std::cout << date <<" => "<< btc_value << " = " <<std::endl;
+    std::cout << date <<" => "<< btc_value << " = ";
     return (1);
 }

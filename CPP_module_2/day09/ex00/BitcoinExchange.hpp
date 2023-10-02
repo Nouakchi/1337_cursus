@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 02:30:00 by onouakch          #+#    #+#             */
-/*   Updated: 2023/09/29 11:56:56 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/10/02 09:54:23 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ public:
     static bool parseDate( char *date );
     static bool parseLine( std::string line );
     void        setData( std::string path );
-    std::map<time_t, double> getDate();
+    std::map<time_t, double>    getData( );
+    void      getDateValue( time_t date, double value);
+    static time_t parseDateTime(const char* datetimeString, const char* format);
 };
 
 
