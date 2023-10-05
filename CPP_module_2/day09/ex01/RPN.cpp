@@ -1,5 +1,6 @@
 
 # include "RPN.hpp"
+# include <string.h>
 
 RPN::RPN() { }
 
@@ -16,7 +17,21 @@ void    RPN::setSequence( std::string seq )
 
 int     RPN::parseLine( std::string seq )
 {
-    (void)seq;
+    int i;
+
+    i = -1;
+    while (seq[++i])
+    {
+        if (seq[i] == ' ')
+            continue;
+        if (seq[i] < '0' || seq[i] > '9')
+        {
+            if (!strchr("+-/*", seq[i]))
+                return (1);
+            if (i && strchr("+-/*", seq[i - 1]))
+                return (1);
+        }
+    }
     return (0);
 }
 
