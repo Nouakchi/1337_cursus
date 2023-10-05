@@ -3,12 +3,13 @@
 # define __RPN_H__
 
 # include <iostream>
-# include <vector>
+# include <stack>
+# include <cstdlib>
 
 class RPN
 {
     private:
-        std::vector<char> sequence;
+        std::stack<int> sequence;
     public:
         RPN();
         ~RPN();
@@ -16,10 +17,8 @@ class RPN
 
         RPN &operator= ( const RPN& other );
 
-        std::vector<char>   getSequence();
-        void                setSequence( std::string seq );
         int                 parseLine( std::string seq );
-        int                 calculate();
+        int                 calculate( std::string seq );
 };
 
 # endif

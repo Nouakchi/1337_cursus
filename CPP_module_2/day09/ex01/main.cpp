@@ -10,7 +10,6 @@ int main(int ac, char *av[])
     RPN rpn;
     if (rpn.parseLine(av[1]))
         return (std::cout << "Error\n", 0);
-    rpn.setSequence(av[1]);
-    std::cout << rpn.calculate();
+    std::cout << rpn.calculate(av[1]) << std::endl;
     return (0);
 }

@@ -28,9 +28,9 @@ int     RPN::parseLine( std::string seq )
         }
         if (seq[i] < '0' || seq[i] > '9')
         {
-            if (!strchr("+-/*", seq[i]))
+            if (!i)
                 return (1);
-            else if (op_is_taken)
+            if (!strchr("+-/*", seq[i]))
                 return (1);
             op_is_taken = 1;
             number_is_taken = 0;
@@ -43,27 +43,48 @@ int     RPN::parseLine( std::string seq )
             op_is_taken = 0;
         }
     }
+    if (!op_is_taken)
+        return (1);
     return (0);
 }
 
-void    RPN::setSequence( std::string seq )
+int RPN::calculate( std::string seq )
 {
-    int i;
+    int i, a, b;
 
     i = -1;
     while (seq[++i])
     {
         if (seq[i] == ' ')
             continue;
-        this->sequence.push_back(seq[i]);
+        if (seq[i] >= '0' && seq[i] <= '9')
+            this->sequence.push(seq[i] - 48);
+        else
+        {
+            if (this->sequence.size() <= 1)
+            {
+                std::cout << "Not valid RPN, each operator should have the correct number of operands, and the expression should be well-formed" << std::endl;
+                exit(1);
+            }
+            b = this->sequence.top();
+            this->sequence.pop();
+            a = this->sequence.top();
+            this->sequence.pop();
+            if (seq[i] == '+')
+                this->sequence.push(a + b);
+            else if (seq[i] == '-')
+                this->sequence.push(a - b);
+            else if (seq[i] == '/' && b)
+                this->sequence.push(a / b);
+            else if (seq[i] == '*')
+                this->sequence.push(a * b);
+            else
+            {
+                std::cout << "Not valid operation (div / 0)" << std::endl;
+                exit(1);
+            }
+        }
     }
-}
-
-int RPN::calculate()
-{
-    int result;
-
-    result = 0;
-    return (result);
+    return (this->sequence.top());
 }
 
