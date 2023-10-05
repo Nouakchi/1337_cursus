@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 02:30:02 by onouakch          #+#    #+#             */
-/*   Updated: 2023/10/02 10:33:00 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:07:47 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void    BitcoinExchange::setData( std::string path )
     char      *key;
     double          value;
 
-    data.open(path);
+    data.open(path.c_str());
     if (data.is_open())
     {
         getline(data, line);

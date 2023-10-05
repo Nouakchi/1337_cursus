@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 02:30:00 by onouakch          #+#    #+#             */
-/*   Updated: 2023/10/02 09:54:23 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:22:36 by othman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 
 # include <iostream>
 # include <fstream>
+# include <cstring>
+# include <stdlib.h>
 #include <ctime>
 # include <map>
 
 class BitcoinExchange
 {
 private:
-public:
     std::map<time_t , double> data;
+public:
     BitcoinExchange();
     BitcoinExchange( const BitcoinExchange& copy );
     ~BitcoinExchange();
