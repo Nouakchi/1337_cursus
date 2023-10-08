@@ -45,22 +45,25 @@ int main(int ac, char *av[])
 
     i = 0;
     while (++i < ac)
-        pm.getList().push_back(atoi(av[i]));
-    pm.generate_jacobsthal();
-    affiche(pm.getJacobsthal_set());
+        pm.getMainchain().push_back(atoi(av[i]));
+    affiche(pm.getMainchain());
+    pm.larger_of_two();
+    std::cout << "-------------\n";
+    affiche(pm.getMainchain());
+    std::cout << "-------------\n";
+    affiche_step2(pm.getMainchain());
+    std::cout << "-------------\n";
+    pm.sortPairs();
+    affiche_step2(pm.getMainchain());
+    std::cout << "-------------\n";
+    affiche(pm.getMainchain());
+    std::cout << "-------------\n";
+    pm.fill_pend();
+    affiche(pm.getMainchain());
+    std::cout << "-----\n";
+    affiche(pm.getPend());
+    std::cout << "-------------\n";
     pm.generate_combination();
     affiche(pm.getCombination_set());
-    // affiche(pm.getList());
-    // pm.larger_of_two();
-    // std::cout << "-------------\n";
-    // affiche(pm.getList());
-    // std::cout << "-------------\n";
-    // affiche_step2(pm.getList());
-    // std::cout << "-------------\n";
-    // pm.sortPairs();
-    // affiche_step2(pm.getList());
-    // std::cout << "-------------\n";
-    // affiche(pm.getList());
-    // std::cout << "-------------\n";
     return (0);
 }
