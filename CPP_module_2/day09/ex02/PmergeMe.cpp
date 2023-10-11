@@ -104,18 +104,20 @@ void    PmergeMe::generate_combination()
     unsigned long i, j;
     std::vector<size_t> jacobsthal_set;
     generate_jacobsthal( jacobsthal_set, this->main_chain.size());
-    std::cout << "check\n";
     this->combination_set.push_back(3);
     this->combination_set.push_back(2);
     i = 1;
-    while (++i < jacobsthal_set.size())
+    while (++i < jacobsthal_set.size() && this->combination_set.size() <= this->pend.size())
     {
         j = jacobsthal_set[i];
         this->combination_set.push_back(j);
         while (--j > jacobsthal_set[i - 1])
-            this->combination_set.push_back(j);
+            if (j <= this->pend.size() + 1)
+                this->combination_set.push_back(j);
     }
+    std::cout << "check\n";
     std::cout << this->combination_set.size() << "-\n";
+
 }
 
 void    PmergeMe::fill_pend()

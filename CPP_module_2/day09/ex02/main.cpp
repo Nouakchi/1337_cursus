@@ -55,13 +55,13 @@ int main(int ac, char *av[])
     // affiche_step2(pm.getMainchain());
     // std::cout << "-------------\n";
     pm.fill_pend();
-    // affiche(pm.getMainchain());
-    // std::cout << "-----\n";
-    // affiche(pm.getPend());
-    // std::cout << "-------------\n";
-    // affiche(pm.getCombination_set());
-    // std::cout << "-------------\n";
-    pm.order_list();
     affiche(pm.getMainchain());
+    std::cout << "-----\n";
+    affiche(pm.getPend());
+    std::cout << "-------------\n";
+    affiche(pm.getCombination_set());
+    std::cout << "-------------\n";
+    // pm.order_list();
+    // affiche(pm.getMainchain());
     return (0);
 }
