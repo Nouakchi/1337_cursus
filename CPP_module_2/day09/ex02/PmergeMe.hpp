@@ -4,6 +4,7 @@
 
 # include <iostream>
 # include <vector>
+# include <algorithm>
 
 class PmergeMe
 {
@@ -26,6 +27,7 @@ class PmergeMe
         void    sortPairs();
         void    generate_combination();
         void    fill_pend();
+        void    order_list();
 };
 
 # endif

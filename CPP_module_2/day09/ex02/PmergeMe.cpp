@@ -91,43 +91,82 @@ void    generate_jacobsthal( std::vector<size_t> &jacobsthal_set,  unsigned int 
     jacobsthal_set.push_back(3);
     i = 1;
     while (++i <= size / 2)
+    {
         jacobsthal_set.push_back(
             jacobsthal_set[i - 1] +
             (2 * (jacobsthal_set[i - 2]))
         );
-}
-
-int     contains( size_t num, std::vector<size_t> main_chain )
-{
-    unsigned long i = -1;
-    while (++i < main_chain.size())
-        if (num == main_chain[i])
-            return (1);
-    return (0);
+    }
 }
 
 void    PmergeMe::generate_combination()
 {
     unsigned long i, j;
     std::vector<size_t> jacobsthal_set;
-
     generate_jacobsthal( jacobsthal_set, this->main_chain.size());
-    this->combination_set.push_back(jacobsthal_set[1]);
+    std::cout << "check\n";
+    this->combination_set.push_back(3);
     this->combination_set.push_back(2);
     i = 1;
     while (++i < jacobsthal_set.size())
     {
         j = jacobsthal_set[i];
         this->combination_set.push_back(j);
-        while (!contains( --j, this->combination_set ))
+        while (--j > jacobsthal_set[i - 1])
             this->combination_set.push_back(j);
     }
+    std::cout << this->combination_set.size() << "-\n";
 }
 
 void    PmergeMe::fill_pend()
 {
-    unsigned long i = -1;
+    unsigned long i = 1;
+    while (i < this->main_chain.size())
+    {
+        this->pend.push_back(this->main_chain[i]);
+        i += 2;
+    }
+    i = 0;
     while (++i < this->main_chain.size())
-        if (i % 2)
-            this->pend.push_back(this->main_chain[i]);
+        this->main_chain.erase(this->main_chain.begin() + i);
+    this->generate_combination();
+    //
+    this->main_chain.insert(this->main_chain.begin(), this->pend[0]);
+    this->pend.erase(this->pend.begin());
+}
+
+void    PmergeMe::order_list()
+{
+    unsigned long i, j;
+    std::vector<size_t>::iterator pos;
+
+    i = -1;
+    j = -1;
+    while (++i < this->pend.size())
+    {
+        while (this->combination_set[++j] > this->pend.size() + 1)
+            ;
+        pos = std::lower_bound(
+                    this->main_chain.begin(),
+                    this->main_chain.end(),
+                    this->pend[this->combination_set[j] - 2]
+                );
+        this->main_chain.insert(
+            this->main_chain.begin() + (pos - this->main_chain.begin()),
+            this->pend[this->combination_set[j] - 2]
+        );
+    }
+    if (this->main_chain.size() % 2)
+    {
+        pos = std::lower_bound(
+                    this->main_chain.begin(),
+                    this->main_chain.end(),
+                    this->main_chain[this->main_chain.size() - 1]
+                );
+        this->main_chain.insert(
+            this->main_chain.begin() + (pos - this->main_chain.begin()),
+            this->main_chain[this->main_chain.size() - 1]
+        );
+        this->main_chain.pop_back();
+    }
 }

@@ -46,24 +46,22 @@ int main(int ac, char *av[])
     i = 0;
     while (++i < ac)
         pm.getMainchain().push_back(atoi(av[i]));
-    affiche(pm.getMainchain());
+    // affiche(pm.getMainchain());
+    // std::cout << "-------------\n";
     pm.larger_of_two();
-    std::cout << "-------------\n";
-    affiche(pm.getMainchain());
-    std::cout << "-------------\n";
-    affiche_step2(pm.getMainchain());
-    std::cout << "-------------\n";
+    // affiche_step2(pm.getMainchain());
+    // std::cout << "-------------\n";
     pm.sortPairs();
-    affiche_step2(pm.getMainchain());
-    std::cout << "-------------\n";
-    affiche(pm.getMainchain());
-    std::cout << "-------------\n";
+    // affiche_step2(pm.getMainchain());
+    // std::cout << "-------------\n";
     pm.fill_pend();
+    // affiche(pm.getMainchain());
+    // std::cout << "-----\n";
+    // affiche(pm.getPend());
+    // std::cout << "-------------\n";
+    // affiche(pm.getCombination_set());
+    // std::cout << "-------------\n";
+    pm.order_list();
     affiche(pm.getMainchain());
-    std::cout << "-----\n";
-    affiche(pm.getPend());
-    std::cout << "-------------\n";
-    pm.generate_combination();
-    affiche(pm.getCombination_set());
     return (0);
 }
