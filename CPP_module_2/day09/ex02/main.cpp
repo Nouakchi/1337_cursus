@@ -1,39 +1,21 @@
 
 # include "PmergeMe.hpp"
 
-void affiche( std::vector<size_t> list)
+void affiche( std::vector<size_t> list , std::string msg )
 {
-    std::vector<size_t>::iterator it;
-    for(it=list.begin();it!=list.end();++it)
-        std::cout << *it << " - ";
-    std::cout << "\n";
-}
-
-void affiche_step2( std::vector<size_t> list)
-{
-    int i = -1;
-
-    int list_len;
-
-    i = 0;
-    list_len = list.size();
-    if (list_len % 2)
-        list_len--;
-    while (i < list_len)
+    unsigned long i = -1;
+    std::cout << msg;
+    while (++i < list.size())
     {
-        std::cout << list[i] << " ";
-        i += 2;
-    }
-    std::cout << "\n";
-    i = 1;
-    while (i < list_len)
-    {
-        std::cout << list[i] << " ";
-        i += 2;
+        std::cout << " " << list[i];
+        // if (i && list[i - 1] > list[i])
+        // {
+        //     std::cout << "not Sorted !!\n";
+        //     return ;
+        // }
     }
     std::cout << "\n";
 }
-
 
 
 int main(int ac, char *av[])
@@ -46,22 +28,15 @@ int main(int ac, char *av[])
     i = 0;
     while (++i < ac)
         pm.getMainchain().push_back(atoi(av[i]));
-    // affiche(pm.getMainchain());
-    // std::cout << "-------------\n";
+    affiche(pm.getMainchain(), "Before: ");
+    clock_t time;
+    time = clock();
     pm.larger_of_two();
-    // affiche_step2(pm.getMainchain());
-    // std::cout << "-------------\n";
     pm.sortPairs();
-    // affiche_step2(pm.getMainchain());
-    // std::cout << "-------------\n";
     pm.fill_pend();
-    affiche(pm.getMainchain());
-    std::cout << "-----\n";
-    affiche(pm.getPend());
-    std::cout << "-------------\n";
-    affiche(pm.getCombination_set());
-    std::cout << "-------------\n";
-    // pm.order_list();
-    // affiche(pm.getMainchain());
+    pm.order_list();
+    time = static_cast<double>(clock() - time);
+    affiche(pm.getMainchain(), "After: ");
+    std::cout << "Time to process a range of 3000 elements with std::vecotr<size_t> : " << time << std::endl;
     return (0);
 }

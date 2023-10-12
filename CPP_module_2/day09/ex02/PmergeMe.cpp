@@ -115,8 +115,6 @@ void    PmergeMe::generate_combination()
             if (j <= this->pend.size() + 1)
                 this->combination_set.push_back(j);
     }
-    std::cout << "check\n";
-    std::cout << this->combination_set.size() << "-\n";
 
 }
 
@@ -132,7 +130,6 @@ void    PmergeMe::fill_pend()
     while (++i < this->main_chain.size())
         this->main_chain.erase(this->main_chain.begin() + i);
     this->generate_combination();
-    //
     this->main_chain.insert(this->main_chain.begin(), this->pend[0]);
     this->pend.erase(this->pend.begin());
 }
