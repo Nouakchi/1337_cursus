@@ -4,6 +4,7 @@
 
 # include <iostream>
 # include <vector>
+# include <deque>
 # include <algorithm>
 # include <ctime>
 
@@ -13,6 +14,11 @@ class PmergeMe
         std::vector<size_t> main_chain;
         std::vector<size_t> pend;
         std::vector<size_t> combination_set;
+        std::deque<size_t> d_main_chain;
+        std::deque<size_t> d_pend;
+        std::deque<size_t> d_combination_set;
+        long strugller;
+
     public:
         PmergeMe();
         ~PmergeMe();
@@ -20,15 +26,25 @@ class PmergeMe
 
         PmergeMe &operator= ( const PmergeMe &other );
 
-        std::vector<size_t>    &getMainchain();
-        std::vector<size_t>    &getPend();
-        std::vector<size_t>    &getCombination_set();
-        void    larger_of_two();
-        void    swapPairs( int first_p_idx, int second_p_idx, int flag );
-        void    sortPairs();
-        void    generate_combination();
-        void    fill_pend();
-        void    order_list();
+        std::vector<size_t>     &getMainchain();
+        std::vector<size_t>     &getPend();
+        std::vector<size_t>     &getCombination_set();
+        std::deque<size_t>      &d_getMainchain();
+        std::deque<size_t>      &d_getPend();
+        std::deque<size_t>     &d_getCombination_set();
+        void                    setStrugller( long val );
+        void                    larger_of_two();
+        void                    swapPairs( int first_p_idx, int second_p_idx, int flag );
+        void                    sortPairs();
+        void                    generate_combination();
+        void                    fill_pend();
+        void                    order_list();
+        void                    d_larger_of_two();
+        void                    d_swapPairs( int first_p_idx, int second_p_idx, int flag );
+        void                    d_sortPairs();
+        void                    d_generate_combination();
+        void                    d_fill_pend();
+        void                    d_order_list();
 };
 
 # endif
