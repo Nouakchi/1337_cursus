@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:25:43 by onouakch          #+#    #+#             */
-/*   Updated: 2023/10/14 16:25:45 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/10/14 17:16:34 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,11 @@ void is_numeric( int ac, char **val )
     }
 }
 
-
-int main(int ac, char *av[])
+void    sort_with_vector( PmergeMe &pm , int ac, char **av )
 {
-    if (ac < 2)
-        return (std::cout << "Few arguments !!\n", 0);
-    is_numeric(ac, av);
-    PmergeMe pm;
     int i;
 
     i = 0;
-    clock_t time = clock();
     std::cout << "Before: ";
     while (++i < ac)
     {
@@ -70,12 +64,13 @@ int main(int ac, char *av[])
         pm.fill_pend();
         pm.order_list();
     }
-    time = static_cast<double>(clock() - time);
-    affiche(pm.getMainchain(), "After: ");
-    std::cout << "Time to process a range of " << pm.getMainchain().size() << " elements with std::vecotr<size_t> : " << time << " us" << std::endl;
-    //
+}
+
+void    sort_with_deque( PmergeMe &pm , int ac, char **av )
+{
+    int i;
+
     i = 0;
-    time = clock();
     while (++i < ac)
         pm.d_getMainchain().push_back(atoi(av[i]));
     if (pm.d_getMainchain().size() != 1)
@@ -91,6 +86,24 @@ int main(int ac, char *av[])
         pm.d_fill_pend();
         pm.d_order_list();
     }
+}
+
+
+int main(int ac, char *av[])
+{
+    PmergeMe pm;
+    
+    if (ac < 2)
+        return (std::cout << "Few arguments !!\n", 0);
+    is_numeric(ac, av);
+    clock_t time = clock();
+    sort_with_vector(pm, ac, av);
+    time = static_cast<double>(clock() - time);
+    affiche(pm.getMainchain(), "After: ");
+    std::cout << "Time to process a range of " << pm.getMainchain().size() << " elements with std::vecotr<size_t> : " << time << " us" << std::endl;
+    //
+    time = clock();
+    sort_with_deque(pm, ac, av);
     time = static_cast<double>(clock() - time);
     std::cout << "Time to process a range of " << pm.d_getMainchain().size() << " elements with std::deque<size_t> : " << time << " us" << std::endl;
     return (0);
