@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 10:16:38 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/22 01:39:33 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/08/12 04:48:39 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main( void ) 
 {
     char arr[3] = "ab";
-    Iter::iter(arr, 2 , toupper);
+    ::iter(arr, 2 , toupper);
     std::cout << arr << "\n";
     return 0;
 }

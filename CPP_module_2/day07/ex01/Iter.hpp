@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 10:45:52 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/18 11:21:09 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/08/12 04:48:22 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,13 @@
 
 # include <iostream>
 
-class Iter
+
+template <class T, class U, class V>
+void iter(T arr_adrss, U arr_len, V func)
 {
-    
-public:
-    Iter();
-    Iter( const Iter& copy );
-    ~Iter();
-
-    Iter& operator = ( const Iter& other );
-
-    template <class T, class U, class V>
-    static void iter(T arr_adrss, U arr_len, V func)
-    {
-        while (arr_len-- > 0)
-            arr_adrss[arr_len] = func(arr_adrss[arr_len]);
-    }
-    
-};
+    while (arr_len-- > 0)
+        arr_adrss[arr_len] = func(arr_adrss[arr_len]);
+}
 
 
 # endif

@@ -5,29 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 13:48:50 by onouakch          #+#    #+#             */
-/*   Updated: 2023/09/28 10:21:04 by onouakch         ###   ########.fr       */
+/*   Created: 2023/07/25 23:45:01 by onouakch          #+#    #+#             */
+/*   Updated: 2023/08/19 07:18:17 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <iostream>
-#include "ScalarConverter.hpp"
-#include <cstdlib>
-int main(int ac, char *av[])
+# include "MutantStack.hpp"
+# include <list>
+int main()
 {
-    try
-    {
-        double x = .0;
-        if (ac == 2 && av[1][0] != '\0')
-            ScalarConverter::convert(av[1]);
-        else
-            throw (ScalarConverter::BadArguments());
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    
-    return (0);
+MutantStack<int> mstack;
+mstack.push(5);
+mstack.push(17);
+std::cout << mstack.top() << std::endl;
+mstack.pop();
+std::cout << mstack.size() << std::endl;
+mstack.push(3);
+mstack.push(5);
+mstack.push(737);
+//[...]
+mstack.push(0);
+MutantStack<int>::iterator it = mstack.rbegin();
+MutantStack<int>::iterator ite = mstack.end();
+++it;
+--it;
+while (it != ite)
+{
+std::cout << *it << std::endl;
+++it;
+}
+std::stack<int> s(mstack);
+return 0;
 }

@@ -67,6 +67,8 @@
         "utility": "cpp",
         "forward_list": "cpp",
         "list": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "__tree": "cpp",
+        "map": "cpp"
     }
 }
