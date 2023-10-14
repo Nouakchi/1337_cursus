@@ -1,11 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/14 16:25:50 by onouakch          #+#    #+#             */
+/*   Updated: 2023/10/14 16:26:44 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 # include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe()
-{
-}
-PmergeMe::~PmergeMe(){}
+PmergeMe::PmergeMe() {}
 
+PmergeMe::~PmergeMe() {}
 
 std::vector<size_t> &PmergeMe::getMainchain()
 {
@@ -330,6 +339,5 @@ void    PmergeMe::d_order_list()
             this->d_main_chain.begin() + (pos - this->d_main_chain.begin()),
             this->strugller
         );
-        
     }
 }

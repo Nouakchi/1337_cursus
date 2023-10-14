@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/14 16:25:35 by onouakch          #+#    #+#             */
+/*   Updated: 2023/10/14 16:26:21 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 # ifndef __PMERGEME_H__
 # define __PMERGEME_H__
@@ -31,7 +42,7 @@ class PmergeMe
         std::vector<size_t>     &getCombination_set();
         std::deque<size_t>      &d_getMainchain();
         std::deque<size_t>      &d_getPend();
-        std::deque<size_t>     &d_getCombination_set();
+        std::deque<size_t>      &d_getCombination_set();
         void                    setStrugller( long val );
         void                    larger_of_two();
         void                    swapPairs( int first_p_idx, int second_p_idx, int flag );

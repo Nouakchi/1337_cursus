@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/14 16:25:43 by onouakch          #+#    #+#             */
+/*   Updated: 2023/10/14 16:25:45 by onouakch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 # include "PmergeMe.hpp"
 
@@ -6,40 +17,34 @@ void affiche( std::vector<size_t> list , std::string msg )
     unsigned long i = -1;
     std::cout << msg;
     while (++i < list.size())
-    {
         std::cout << " " << list[i];
-        // if (i && list[i - 1] > list[i])
-        // {
-        //     std::cout << " not Sorted !!\n";
-        //     return ;
-        // }
-    }
-    // std::cout << "sorted !!\n";
     std::cout << "\n";
 }
 
-// void d_affiche( std::deque<size_t> list , std::string msg )
-// {
-//     unsigned long i = -1;
-//     std::cout << msg;
-//     while (++i < list.size())
-//     {
-//         std::cout << " " << list[i];
-//         // if (i && list[i - 1] > list[i])
-//         // {
-//         //     std::cout << " not Sorted !!\n";
-//         //     return ;
-//         // }
-//     }
-//     // std::cout << "sorted !!\n";
-//     std::cout << "\n";
-// }
+void is_numeric( int ac, char **val )
+{
+    int i, j;
+
+    i = 0;
+    while (++i < ac)
+    {
+        j = -1;
+        while (val[i][++j])
+        {
+            if (!j && val[i][j] == '+' && strlen(val[i]) > 1)
+                j++;
+            if (val[i][j] < '0' || val[i][j] > '9')
+                return (std::cout << "Error\n" , exit(1));
+        }
+    }
+}
 
 
 int main(int ac, char *av[])
 {
     if (ac < 2)
         return (std::cout << "Few arguments !!\n", 0);
+    is_numeric(ac, av);
     PmergeMe pm;
     int i;
 
@@ -48,7 +53,7 @@ int main(int ac, char *av[])
     std::cout << "Before: ";
     while (++i < ac)
     {
-        std::cout << " " << av[i];
+        std::cout << " " << atoi(av[i]);
         pm.getMainchain().push_back(atoi(av[i]));
     }
     std::cout << "\n";
@@ -73,7 +78,6 @@ int main(int ac, char *av[])
     time = clock();
     while (++i < ac)
         pm.d_getMainchain().push_back(atoi(av[i]));
-    // d_affiche(pm.d_getMainchain(), "Before: ");
     if (pm.d_getMainchain().size() != 1)
     {
         pm.setStrugller( -1 );
@@ -88,7 +92,6 @@ int main(int ac, char *av[])
         pm.d_order_list();
     }
     time = static_cast<double>(clock() - time);
-    // d_affiche(pm.d_getMainchain(), "After: ");
     std::cout << "Time to process a range of " << pm.d_getMainchain().size() << " elements with std::deque<size_t> : " << time << " us" << std::endl;
     return (0);
 }
