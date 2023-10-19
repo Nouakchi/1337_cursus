@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 13:48:52 by onouakch          #+#    #+#             */
-/*   Updated: 2023/07/17 13:48:52 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/10/19 17:05:43 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ bool ScalarConverter::isFloat( char *input )
     buff[i - 1] = '\0';
     int j = -1;
     if (input[0] == '-' || input[0] == '+')
-        j++;
+        buff[++j] = input[0];
     while (++j < i - 1)
         buff[j] = input[j];
     if (!ScalarConverter::isDouble(buff))
@@ -155,7 +155,6 @@ void ScalarConverter::printDouble( double number )
 
 void ScalarConverter::convert( char *input )
 {
-    //cehck this test ./convert -1 !!
     if (ScalarConverter::isFloat(input) || ScalarConverter::isDouble(input)
                                         || ScalarConverter::isInt(input))
     {

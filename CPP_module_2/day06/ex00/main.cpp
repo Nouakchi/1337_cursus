@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 13:48:50 by onouakch          #+#    #+#             */
-/*   Updated: 2023/09/28 10:21:04 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/10/19 17:36:12 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int main(int ac, char *av[])
 {
     try
     {
-        double x = .0;
         if (ac == 2 && av[1][0] != '\0')
             ScalarConverter::convert(av[1]);
         else
@@ -26,7 +25,7 @@ int main(int ac, char *av[])
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << '\n'; 
     }
     
     return (0);
