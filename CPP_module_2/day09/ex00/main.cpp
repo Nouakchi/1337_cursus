@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 02:29:57 by onouakch          #+#    #+#             */
-/*   Updated: 2023/10/05 12:07:55 by othman           ###   ########.fr       */
+/*   Updated: 2023/10/21 20:05:46 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,24 @@ int main(int ac, char *av[])
         getline(input_file, line);
         if (line != "date | value")
             std::cout << "Error: bad input => [data | value]" << std::endl;
-        while (getline(input_file, line))
+        else
         {
-            if (!BitcoinExchange::parseLine(line))
-                continue;
-            key = strtok((char *)line.c_str(), " |");
-            value = atof((const char*)strtok(NULL, " |"));
-            
-            time_t tm = parseDateTime(
-                        (const char*)strcat(key, " 00:00:00"),
-                        "%Y-%m-%d %H:%M:%S"
-                    );
-            
-            btc.getDateValue(tm ,value);
+            while (getline(input_file, line))
+            {
+                if (!BitcoinExchange::parseLine(line))
+                    continue;
+                key = strtok((char *)line.c_str(), " |");
+                value = atof((const char*)strtok(NULL, " |"));
+                
+                time_t tm = parseDateTime(
+                            (const char*)strcat(key, " 00:00:00"),
+                            "%Y-%m-%d %H:%M:%S"
+                        );
+                
+                btc.getDateValue(tm ,value);
+            }
+            input_file.close();
         }
-        input_file.close();
     }
    
     return (0);

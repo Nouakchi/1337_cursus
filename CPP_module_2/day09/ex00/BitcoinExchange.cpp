@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: othman <othman@student.42.fr>              +#+  +:+       +#+        */
+/*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 02:30:02 by onouakch          #+#    #+#             */
-/*   Updated: 2023/10/05 12:07:47 by othman           ###   ########.fr       */
+/*   Updated: 2023/10/21 20:35:19 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void BitcoinExchange::getDateValue( time_t date, double value )
     double                              tmp;
     
     tmp = -1;
-    (void)value;
     for (it=this->data.begin();it!=this->data.end();++it)
     {
         if (date == it->first)
@@ -105,9 +104,9 @@ int isNumeric( char *str )
 
 bool isDate( int year, int month, int day)
 {
-    if (year == 2009 && day < 3)
-        return (false);
     if (year < 2009 || year > 2023 || month < 1 || month > 12 || day < 1 || day > 31)
+        return (false);
+    if (year == 2009 && day < 2)
         return (false);
     int daysInMonths[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     if (!(year % 400) || (!(year % 4) && year % 100 ))
@@ -118,6 +117,12 @@ bool isDate( int year, int month, int day)
 bool BitcoinExchange::parseDate( char *date )
 {
     if (std::strlen(date) != 10)
+        return (0);
+    int dash_count = 0, i = -1;
+    while (date[++i])
+        if (date[i] == '-')
+            dash_count++;
+    if (dash_count != 2)
         return (0);
     std::string tmp = date;
     int year = isNumeric(strtok((char*)tmp.c_str(), "-"));
@@ -161,14 +166,23 @@ double isFloat( char *value )
 
 bool BitcoinExchange::parseLine( std::string line )
 {
-    char *date = strtok((char*)line.c_str(), " |");
-    char *value = strtok(NULL, " |");
+    size_t pipe_count = 0, i = -1;
+    while (++i < line.length())
+        if (line[i] == '|')
+            pipe_count++;
+    if (pipe_count != 1)
+        return (std::cout << "Error: bad input => |" << std::endl, 0);
+    char *date = strtok((char*)line.c_str(), " |\t");
+    char *value = strtok(NULL, " |\t");
+    char *tmp = strtok(NULL, " |\t");
     if (!date)
         return (std::cout << "Error: bad input => " << std::endl, 0);
     if (!parseDate(date))
         return (std::cout << "Error: bad input => " << date << std::endl, 0);
     if (!value)
         return (std::cout << "Error: bad input => " << std::endl, 0);
+    if (tmp)
+        return (std::cout << "Error: bad input => " << tmp << std::endl, 0);
     double btc_value = isFloat(value);
     if (btc_value < 0)
         return (0);

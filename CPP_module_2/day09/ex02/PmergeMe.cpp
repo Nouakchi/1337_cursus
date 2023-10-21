@@ -6,7 +6,7 @@
 /*   By: onouakch <onouakch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:25:50 by onouakch          #+#    #+#             */
-/*   Updated: 2023/10/14 16:26:44 by onouakch         ###   ########.fr       */
+/*   Updated: 2023/10/21 21:10:31 by onouakch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -288,7 +288,7 @@ void    PmergeMe::order_list()
                     this->pend[this->combination_set[j] - 2]
                 );
         this->main_chain.insert(
-            this->main_chain.begin() + (pos - this->main_chain.begin()),
+            pos,
             this->pend[this->combination_set[j] - 2]
         );
     }
@@ -300,7 +300,7 @@ void    PmergeMe::order_list()
                     this->strugller
                 );
         this->main_chain.insert(
-            this->main_chain.begin() + (pos - this->main_chain.begin()),
+            pos,
             this->strugller
         );
         
@@ -324,7 +324,7 @@ void    PmergeMe::d_order_list()
                     this->d_pend[this->d_combination_set[j] - 2]
                 );
         this->d_main_chain.insert(
-            this->d_main_chain.begin() + (pos - this->d_main_chain.begin()),
+            pos,
             this->d_pend[this->d_combination_set[j] - 2]
         );
     }
@@ -336,7 +336,7 @@ void    PmergeMe::d_order_list()
                     this->strugller
                 );
         this->d_main_chain.insert(
-            this->d_main_chain.begin() + (pos - this->d_main_chain.begin()),
+            pos,
             this->strugller
         );
     }
